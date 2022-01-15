@@ -1,12 +1,9 @@
 body{
   margin: 0%;
   padding: 0%;
+  box-sizing: border-box;
 }
-.nav{
-  padding: 0% 50px;
-  justify-content: space-between;
-  border-bottom: 1px solid rgb(241, 234, 234);
-}
+
 .flex{
   display: flex;
 }
@@ -19,7 +16,7 @@ ul {
   
 }
 a{
-  margin: 0% 1rem;
+ 
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 18px;
@@ -34,29 +31,4 @@ a{
   justify-content: space-between;
 }
 
-.nav_btn_light{
-  font-family: 'Poppins', sans-serif;
-  cursor: pointer;
-  width: 91px;
-  height: 36px;
-  margin-top: 10px;
-  border-radius: 3px;
-  margin-top: 10px;
-  border-radius: 4px;
-  border: none;
-  background-color: #F1E4FF;
-  color: #66DFD8;
-}
-.nav_btn_dark{
-  font-family: 'Poppins', sans-serif;
-  cursor: pointer;
-  width: 91px;
-  height: 36px;
-  margin-top: 10px;
-  border-radius: 3px;
-  margin-top: 10px;
-  border-radius: 4px;
-  border: none;
-  background-color: #66DFD8;
-  color: white;
-}
+
