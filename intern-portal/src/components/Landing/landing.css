@@ -60,6 +60,9 @@
     right: 7px;
     height: 123px;
 }
+.mg-top{
+    margin-top: 1rem;
+}
 @media screen and (max-width: 828px) {
    .client_sec{
   margin: 2rem 3rem;
