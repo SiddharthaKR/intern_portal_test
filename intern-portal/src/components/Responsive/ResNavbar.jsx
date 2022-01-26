@@ -1,19 +1,27 @@
 import React, {useState} from 'react'
+import { Link } from "react-router-dom"
 import MenuItems from "./MenuItems"
 import Button from './Button'
 import logo from "../images/Dark.png"
 import "./nav.css"
+import { FaWindows } from 'react-icons/fa'
 
-const ResNavbar = () => {
+const ResNavbar = ({user}) => {
  const [clicked , setClicked]= useState(false);
 
  function handleClick(){
      setClicked(!clicked);
  }
 
+ const logout=()=>{
+     window.open("http://localhost:5000/auth/logout", "_self");
+ }
+
     return (
         <nav className='NavbarItems '>
+            <Link to="/">
             <img src={logo} alt="" srcset="" />
+            </Link>
             <div className='menu-icon'onClick={handleClick}>
   <i className={clicked?"fas fa-times": 'fas fa-bars'}></i>
             </div>
@@ -29,8 +37,22 @@ const ResNavbar = () => {
                
             </ul>
             <div className='flex btn-grp'>
-            <Button className=''>Sign Up</Button>
-            <Button>Log In</Button>
+                {user?(
+                    <>
+                     <Button onClick={logout}>Log Out</Button>
+                    </>):
+                    (
+                        <>
+                        <Link to="login">
+                        <Button className=''>Sign Up</Button>
+                        </Link>
+                        <Link to="login">
+                        <Button>Log In</Button>
+                        </Link>  
+                       </> 
+                    )
+                }
+            
             </div>
         </nav>
     )

@@ -9,7 +9,7 @@ import image5 from "../images/Quote Mark.png";
 import Slide from "../Global/Carousel/Slide";
 import "./landing.css";
 import { SliderData } from "../Global/Carousel/SliderData";
-import ResNavbar from "../Responsive/ResNavbar";
+
 
 
 const Landing = () => {
@@ -17,7 +17,7 @@ const Landing = () => {
   return (
      
     <div>
-      <ResNavbar />
+    
    
       <div className="landing_header ">
         <div className="center_ele flex head_box">
