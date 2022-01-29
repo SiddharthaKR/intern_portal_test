@@ -33,7 +33,7 @@ done(null, currentUser);
       }
       else{
         new User({
-          outlookId: profile._json.Id,
+          outlookid: profile._json.Id,
           username: profile._json.DisplayName,
           email: profile._json.EmailAddress,
           
