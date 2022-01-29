@@ -9,10 +9,10 @@ passport.serializeUser((user,done)=>{
 });
 
 passport.deserializeUser((user,done)=>{   
-  User.findById(id).then((user)=>{
+  // User.findById(id).then((user)=>{
     done(null,user);
 
-});
+// });
 });
 
 
@@ -33,7 +33,7 @@ done(null, currentUser);
       }
       else{
         new User({
-          outlookid: profile._json.Id,
+          outlookId: profile._json.Id,
           username: profile._json.DisplayName,
           email: profile._json.EmailAddress,
           
