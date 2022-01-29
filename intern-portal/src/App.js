@@ -4,6 +4,7 @@ import Secret from "./components/Gate/Secret";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ResNavbar from "./components/Responsive/ResNavbar";
+import StudentProfile from "./components/student-profile/StudentProfile";
 
 
 function App() {
@@ -18,7 +19,7 @@ useEffect(()=>{
       headers:{
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Acess-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Credentials": true,
       },
     }).then(response=>{
       if(response.status===200)
@@ -42,7 +43,7 @@ console.log(user);
       <Routes>
       <Route path="/" element={<Landing />}/>
       <Route path="/login" element={<Login />}  />
-      <Route path="/secret" element={ <Secret />} />
+      <Route path="/profile" element={ <StudentProfile />} />
     </Routes> 
     </div>
       

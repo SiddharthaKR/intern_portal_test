@@ -17,13 +17,14 @@ router.get("/login/success", (req, res)=>{
       message: "successful",
       user: req.user,
     })
+    
   }
   
 })
 
 router.get("/logout",(req,res)=>{
  req.logout();
- res.redirect(CLIENT_URL);
+ res.redirect("http://localhost:3000/");
 })
 
 router.get('/outlook',
@@ -38,7 +39,7 @@ router.get('/outlook',
   })
 );
 
-const CLIENT_URL="http://localhost:3000/"
+const CLIENT_URL="http://localhost:3000/profile"
 
 
 router.get('/outlook/callback', 
