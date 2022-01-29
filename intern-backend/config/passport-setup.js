@@ -9,7 +9,10 @@ passport.serializeUser((user,done)=>{
 });
 
 passport.deserializeUser((user,done)=>{   
- done(null,user);
+  User.findById(id).then((user)=>{
+    done(null,user);
+
+});
 });
 
 
