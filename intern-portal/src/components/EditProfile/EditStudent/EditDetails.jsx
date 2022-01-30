@@ -55,13 +55,18 @@ const updateDetails= async(e)=>{
  const linkedin=studentDetails.linkedin;
  const email=studentDetails.email;
 
- const res=await fetch('/studetuser/updatestudent',{
+ const res=await fetch('/auth/editstudentdetails',{
    method: "POST",
    headers:{
      "Content-Type": "application/json"
    },
    body: JSON.stringify({
-     username,rollno,branch,yearofgraduation,linkedin,email
+     username: username,
+     rollno:rollno,
+     branch:branch,
+     yearofgraduation:yearofgraduation,
+     linkedin:linkedin,
+     email:email
    })
  });
 
@@ -77,7 +82,7 @@ const updateDetails= async(e)=>{
 
 
   return (
-  <form method='post' action="/user/updatestudent">
+  <form method='post' action="/auth/editstudentdetails">
   <Paper elevation={2} style={{maxWidth:1200
   }}>
  <Grid conainer spacing={3}> 

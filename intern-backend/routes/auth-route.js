@@ -1,6 +1,7 @@
 
 const router = require("express").Router();
 const passport= require("passport");
+const StudentUser = require("../models/StudentUser");
 
 router.get("/getuser",(req,res)=>{
   res.send(req.user)
@@ -53,3 +54,38 @@ router.get('/outlook/callback',
  
 
   module.exports = router;
+
+
+
+ //// Information Update ////
+ router.post("/editstudentdetails" , async(req,res)=>{
+
+  var branch = req.body.branch;
+  var phone = req.body.phone;
+  var rollno = req.body.roll;
+  var yearofgraduation = req.body.graduation;
+  var skills = req.body.skills;
+  var linkedin = req.body.linkedin;
+  var username = req.body.username;
+  
+  StudentUser.findOneAndUpdate(
+          {outlookId : req.user.outlookId} , 
+          {$set: {
+            username:username,
+            rollno:rollno,
+            branch:branch,
+            yearofgraduation:yearofgraduation,
+            linkedin:linkedin,
+            
+          }}
+      )
+          .then((data) => {
+              console.log("udate suscessfull")
+          })
+          .catch((err) => {
+            console.log(err);
+              res.render('error' );
+          });
+
+
+ })
