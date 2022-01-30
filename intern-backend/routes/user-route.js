@@ -1,6 +1,8 @@
 const router = require("express").Router();
-const UserDetails= require("../models/Userdetails");
 const express= require('express');
+const authCheck= require("../controllers/authcontroller");
+const StudentUser=require("../models/StudentUser");
+
 
 
 router.get("/editprofile",(req,res)=>{
@@ -10,10 +12,10 @@ console.log(user)
 
 //create a post req of student details
 
-router.post("/editprofile",async (req,res)=>{
- const StudentDetails= new UserDetails(req.body);
+router.post("/updatestudent",async (req,res)=>{
+ const studentuser= new StudentUser(req.body);
  try{
-     const savedDetails = await StudentDetails.save();
+     const savedDetails = await studentuser.save();
      res.status(200).json(savedDetails);
      console.log("details addded");
  } catch(err){

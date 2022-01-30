@@ -42,7 +42,7 @@ app.use(cors({
 }))
 
 app.use("/auth",authRoute);
-app.use("/api/users", userRoute);
+app.use("/studentuser", userRoute);
 
 app.listen("5000",()=>{
     console.log("server started on port 5000")

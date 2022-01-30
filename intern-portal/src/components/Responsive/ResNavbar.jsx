@@ -39,6 +39,9 @@ const ResNavbar = ({user}) => {
             <div className='flex btn-grp'>
                 {user?(
                     <>
+                    <Link to="studentedit">
+                        <Button >Edit Profile</Button>
+                    </Link>
                      <Button onClick={logout}>Log Out</Button>
                     </>):
                     (

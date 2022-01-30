@@ -2,6 +2,9 @@
 const router = require("express").Router();
 const passport= require("passport");
 
+router.get("/getuser",(req,res)=>{
+  res.send(req.user)
+})
 
 router.get("/login/failed",(req,res)=>{
   res.status(401).json({

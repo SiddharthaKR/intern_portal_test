@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ResNavbar from "./components/Responsive/ResNavbar";
 import StudentProfile from "./components/student-profile/StudentProfile";
+import StudentEdit from "./components/EditProfile/EditStudent/StudentEdit";
 
 
 function App() {
@@ -43,7 +44,9 @@ console.log(user);
       <Routes>
       <Route path="/" element={<Landing />}/>
       <Route path="/login" element={<Login />}  />
-      <Route path="/profile" element={ <StudentProfile />} />
+      <Route path="/profile" element={ <StudentProfile/>} />
+      <Route path='/studentedit' element={< StudentEdit />} />
+       
     </Routes> 
     </div>
       
