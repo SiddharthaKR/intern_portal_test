@@ -5,11 +5,26 @@ const cors = require("cors");
 const app = express();
 const passportSetup = require("./config/passport-setup");
 const authRoute= require("./routes/auth-route");
-const userRoute= require("./routes/user-route");
+
 const mongoose= require("mongoose");
 const helmet = require("helmet");
 const morgan = require("morgan");
 require('dotenv/config');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+
+app.set('view engine', 'ejs');
+
+//middleware
+app.use(express.json());
+app.use(helmet());
+app.use(morgan("common"));
+
+mongoose.Promise=global.Promise;
+mongoose.connect(
+    process.env.DB_CONNECTION,()=>{
+    console.log("database coonected");
+})
 
 app.use(cookieSession(
     {
@@ -20,20 +35,9 @@ app.use(cookieSession(
 ));
 
 
-app.set('view engine', 'ejs');
-
-//middleware
-app.use(express.json());
-app.use(helmet());
-app.use(morgan("common"));
-
-mongoose.connect(
-    process.env.DB_CONNECTION,()=>{
-    console.log("database coonected");
-})
-
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cookieParser('secret'));
 
 app.use(cors({
     origin: "http://localhost:3000",
@@ -42,7 +46,7 @@ app.use(cors({
 }))
 
 app.use("/auth",authRoute);
-app.use("/studentuser", userRoute);
+
 
 app.listen("5000",()=>{
     console.log("server started on port 5000")

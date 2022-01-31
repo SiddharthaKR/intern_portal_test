@@ -1,20 +1,47 @@
 const keys =require("./keys");
 const passport=require('passport');
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const OutlookStrategy=require('passport-outlook');
 const StudentUser=require("../models/StudentUser");
+const CompUser=require("../models/CompUser");
 const jwt= require('jsonwebtoken')
  
 
-passport.serializeUser((user,done)=>{
-    done(null,user);
-});
 
-passport.deserializeUser((user,done)=>{   
-  // User.findById(id).then((user)=>{
-    done(null,user);
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: keys.google.clientID,
+      clientSecret: keys.google.clientSecret,
+      callbackURL: "/auth/google/callback",
+    },
+    function (accessToken, refreshToken, profile, done) {
+      
+      CompUser.findOne({googleid:profile.id}).then(
+        (currentUser)=>{
+          if(currentUser){
+            console.log('user is '+currentUser);
+            //serializing the user
+            done(null, currentUser);
+          }
+          else{
+            new CompUser({
+              username: profile._json.name,
+              email: profile._json.picture,
+              googleid:profile.id,   
+            }).save().then((newuser)=>{
+              console.log("hiiiiiiii new Companyuser"+newuser);
+              done(null, newuser);
+            });
+          }
+        }
+      )
+    }
+  )
+);
 
-// });
-});
+
+
 
 
 passport.use(new OutlookStrategy({
@@ -55,12 +82,17 @@ done(null, currentUser);
       
     }
   )
-
-
-   
-
-    
-    
-
   }
 ));
+
+
+passport.serializeUser((user,done)=>{
+  done(null,user);
+});
+
+passport.deserializeUser((user,done)=>{   
+// User.findById(id).then((user)=>{
+  done(null,user);
+
+// });
+});

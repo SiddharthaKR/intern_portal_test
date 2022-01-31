@@ -51,6 +51,19 @@ router.get('/outlook/callback',
   successRedirect: CLIENT_URL
 }));
 
+
+router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: CLIENT_URL,
+    failureRedirect: "/login/failed",
+  })
+);
+
+
+
  
 
   module.exports = router;
@@ -80,7 +93,7 @@ router.get('/outlook/callback',
           }}
       )
           .then((data) => {
-              console.log("udate suscessfull")
+              console.log("update suscessfull")
           })
           .catch((err) => {
             console.log(err);
