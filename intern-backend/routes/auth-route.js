@@ -63,13 +63,6 @@ router.get(
 );
 
 
-
- 
-
-  module.exports = router;
-
-
-
  //// Information Update ////
  router.post("/editstudentdetails" , async(req,res)=>{
 
@@ -102,3 +95,6 @@ router.get(
 
 
  })
+
+
+ module.exports = router;

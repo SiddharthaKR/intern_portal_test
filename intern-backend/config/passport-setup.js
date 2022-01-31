@@ -29,9 +29,9 @@ passport.use(
               username: profile._json.name,
               email: profile._json.picture,
               googleid:profile.id,   
-            }).save().then((newuser)=>{
-              console.log("hiiiiiiii new Companyuser"+newuser);
-              done(null, newuser);
+            }).save().then((newUser)=>{
+              console.log("hiiiiiiii new Companyuser"+newUser);
+              done(null, newUser);
             });
           }
         }
@@ -87,12 +87,17 @@ done(null, currentUser);
 
 
 passport.serializeUser((user,done)=>{
-  done(null,user);
+  done(null,user.id);
 });
 
-passport.deserializeUser((user,done)=>{   
-// User.findById(id).then((user)=>{
-  done(null,user);
+passport.deserializeUser((id,done)=>{   
+  StudentUser.findById(id).then((user) => {
+    done(null, user);
+});
+});
 
-// });
+passport.deserializeUser((id,done)=>{   
+  CompUser.findById(id).then((user) => {
+    done(null, user);
+});
 });

@@ -5,13 +5,13 @@ const cors = require("cors");
 const app = express();
 const passportSetup = require("./config/passport-setup");
 const authRoute= require("./routes/auth-route");
-
 const mongoose= require("mongoose");
 const helmet = require("helmet");
 const morgan = require("morgan");
 require('dotenv/config');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const jobRoute= require('./routes/jobs-route');
+
 
 app.set('view engine', 'ejs');
 
@@ -28,7 +28,7 @@ mongoose.connect(
 
 app.use(cookieSession(
     {
-        name: "session",
+        name: "sidcookie",
         keys: ["lama"],
         maxAge: 24 * 60 * 60 * 100
     }
@@ -46,6 +46,7 @@ app.use(cors({
 }))
 
 app.use("/auth",authRoute);
+app.use("/jobs",jobRoute);
 
 
 app.listen("5000",()=>{
