@@ -10,10 +10,8 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 require('dotenv/config');
 const cookieParser = require('cookie-parser');
-const jobRoute= require('./routes/jobs-route');
+const jobsRoute=require('./routes/jobscart-route');
 
-
-app.set('view engine', 'ejs');
 
 //middleware
 app.use(express.json());
@@ -46,7 +44,9 @@ app.use(cors({
 }))
 
 app.use("/auth",authRoute);
-app.use("/jobs",jobRoute);
+app.use("/jobs",jobsRoute);
+
+
 
 
 app.listen("5000",()=>{

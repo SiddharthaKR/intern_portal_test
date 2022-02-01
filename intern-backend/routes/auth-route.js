@@ -5,6 +5,7 @@ const StudentUser = require("../models/StudentUser");
 
 router.get("/getuser",(req,res)=>{
   res.send(req.user)
+  console.log(req.user);
 })
 
 router.get("/login/failed",(req,res)=>{
@@ -57,7 +58,7 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: CLIENT_URL,
+    successRedirect: "http://localhost:3000/company",
     failureRedirect: "/login/failed",
   })
 );

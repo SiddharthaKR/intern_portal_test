@@ -9,7 +9,8 @@ const JobSchema = new mongoose.Schema(
       whocanapply:{type:String},
       aboutjob:{type:String},
       noofopening:{type:Number},
-      perks:{type:String} 
+      perks:{type:String},
+      phone:{type:String}
     },
     { timestamps: true }
   );

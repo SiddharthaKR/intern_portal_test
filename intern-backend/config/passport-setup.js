@@ -1,6 +1,6 @@
 const keys =require("./keys");
 const passport=require('passport');
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const GoogleStrategy = require("passport-google-oauth20");
 const OutlookStrategy=require('passport-outlook');
 const StudentUser=require("../models/StudentUser");
 const CompUser=require("../models/CompUser");
@@ -15,14 +15,14 @@ passport.use(
       clientSecret: keys.google.clientSecret,
       callbackURL: "/auth/google/callback",
     },
-    function (accessToken, refreshToken, profile, done) {
+    function (accessToken, refreshToken, profile, complete) {
       
       CompUser.findOne({googleid:profile.id}).then(
         (currentUser)=>{
           if(currentUser){
             console.log('user is '+currentUser);
             //serializing the user
-            done(null, currentUser);
+            complete(null, currentUser);
           }
           else{
             new CompUser({
@@ -31,7 +31,7 @@ passport.use(
               googleid:profile.id,   
             }).save().then((newUser)=>{
               console.log("hiiiiiiii new Companyuser"+newUser);
-              done(null, newUser);
+              complete(null, newUser);
             });
           }
         }
@@ -40,7 +40,14 @@ passport.use(
   )
 );
 
-
+passport.serializeUser((user,complete)=>{
+  complete(null,user.id);
+});
+passport.deserializeUser((id,complete)=>{   
+  CompUser.findById(id).then((user) => {
+    complete(null, user);
+});
+});
 
 
 
@@ -96,8 +103,3 @@ passport.deserializeUser((id,done)=>{
 });
 });
 
-passport.deserializeUser((id,done)=>{   
-  CompUser.findById(id).then((user) => {
-    done(null, user);
-});
-});
