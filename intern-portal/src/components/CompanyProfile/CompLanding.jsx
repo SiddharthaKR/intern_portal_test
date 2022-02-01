@@ -44,7 +44,7 @@ useEffect(()=>{
           Hi {companyDetails.username}
       </Typography>
       <Button variant='outlined'>Company Profile</Button>
-      <Button variant='outlined'>Edit company Profile</Button>
+      <Button variant='outlined'>Add company</Button>
       <Button variant='outlined'>Post Job</Button>
       <Button variant='outlined'>Get Stats</Button>
       

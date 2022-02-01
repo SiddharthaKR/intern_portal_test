@@ -10,7 +10,8 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 require('dotenv/config');
 const cookieParser = require('cookie-parser');
-const jobsRoute=require('./routes/jobscart-route');
+const jobsRoute=require('./routes/jobscart-route');c
+const companyRoute=require('./routes/comp-route');
 
 
 //middleware
@@ -45,6 +46,7 @@ app.use(cors({
 
 app.use("/auth",authRoute);
 app.use("/jobs",jobsRoute);
+app.use('/company',companyRoute);
 
 
 
