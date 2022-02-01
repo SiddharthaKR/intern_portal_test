@@ -15,13 +15,16 @@ router.post("/",async(req,res)=>{
 //update
 router.put("/:id",async(req,res)=>{
     try{
-const updatedJob=await Job.findByIdAndUpdate(
-    req.params.id,{
-        $set:req.body
-    },
-    {new:true}
-);
-res.status(200).json(updatedJob);
+        const job=await Job.findById(req.params.id);
+        if(job.userId==req.body.userId){
+            const updatedJob=await Job.findByIdAndUpdate(
+                req.params.id,{
+                    $set:req.body
+                },
+                {new:true}
+            );
+            res.status(200).json(updatedJob);
+        }
     }catch(err){
         res.status(500).json(err);
     }
@@ -30,8 +33,11 @@ res.status(200).json(updatedJob);
 //DELETE
 router.delete("/:id",async(req,res)=>{
     try{
-        await Job.findByIdAndDelete(req.params.id);
-        res.status(200).json("Job has been deleted");
+        const job=await Job.findById(req.params.id)
+        if(job.userId==req.body.userId){
+            await Job.findByIdAndDelete(req.params.id);
+            res.status(200).json("Job has been deleted");
+        }    
     }catch(err){
         res.status(500).json(err);
     }

@@ -10,7 +10,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 require('dotenv/config');
 const cookieParser = require('cookie-parser');
-const jobsRoute=require('./routes/jobscart-route');c
+const jobsRoute=require('./routes/jobscart-route');
 const companyRoute=require('./routes/comp-route');
 
 

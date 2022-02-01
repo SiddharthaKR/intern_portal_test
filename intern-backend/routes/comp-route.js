@@ -1,13 +1,25 @@
 const router = require("express").Router();
 const Company=require('../models/Comp');
+const CompanyUser=require('../models/CompUser')
 const { post } = require("./jobscart-route");
 
-//create company
-router.post("/",async(req,res)=>{
+//get company
+router.get("/:id",async(req,res)=>{
+    try{
+        const company=await Company.findOne({userId:req.params.id});
+        res.status(200).json(company);
+    }catch(err){
+        res.status(500).json(err);
+    }
+})
+
+//register company
+router.post("/register",async(req,res)=>{
     const newCompany= new Company(req.body);
     try{
      const savedCompany=await newCompany.save();
      res.status(200).json(savedCompany);
+     
     }catch(err){
         res.status(500).json(err);
     }
@@ -29,3 +41,4 @@ router.post("/",async(req,res)=>{
       }
   })
   
+  module.exports =router;

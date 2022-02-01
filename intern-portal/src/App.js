@@ -7,6 +7,8 @@ import ResNavbar from "./components/Responsive/ResNavbar";
 import StudentProfile from "./components/student-profile/StudentProfile";
 import StudentEdit from "./components/EditProfile/EditStudent/StudentEdit";
 import CompLanding from "./components/CompanyProfile/CompLanding";
+import JobListing from "./components/Jobs/JobListing";
+import CompanyProfile from "./components/CompanyProfile/CompanyProfile";
 
 
 function App() {
@@ -43,9 +45,11 @@ console.log("---",user);
     <div>
       <ResNavbar user={user}/>
       <Routes>
-      <Route path="/" element={<Landing />}/>
+      <Route exact path="/" element={<Landing />}/>
       <Route path="/login" element={<Login />}  />
-      <Route path="/company" element={ <CompLanding/>} />
+      <Route exact path="/company/register"  element={ <CompLanding/>} />
+      <Route  path="/company/:id" element={<CompanyProfile />} />
+      <Route path="/jobs" element={ <JobListing/>} />
       <Route path="/profile" element={ <StudentProfile/>} />
       <Route path='/studentedit' element={< StudentEdit />} />
        

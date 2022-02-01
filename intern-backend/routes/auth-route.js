@@ -2,11 +2,17 @@
 const router = require("express").Router();
 const passport= require("passport");
 const StudentUser = require("../models/StudentUser");
+const CompanyUser=require('../models/CompUser');
+
 
 router.get("/getuser",(req,res)=>{
   res.send(req.user)
   console.log(req.user);
+ 
 })
+
+
+
 
 router.get("/login/failed",(req,res)=>{
   res.status(401).json({
@@ -55,14 +61,24 @@ router.get('/outlook/callback',
 
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
+
+
 router.get(
   "/google/callback",
-  passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/company",
+  passport.authenticate("google",{
+    successRedirect: "http://localhost:3000/company/register",
     failureRedirect: "/login/failed",
-  })
+  }),
 );
 
+
+//   const prevUser=CompanyUser.findOne({googleid:req.user.googleid})
+  //   if(prevUser){
+  //     res.redirect(`http://localhost:3000/company/${prevUser._id}`)
+  //   }
+  //   else{
+  //     res.redirect(`http://localhost:3000/company/register`)
+  //}
 
  //// Information Update ////
  router.post("/editstudentdetails" , async(req,res)=>{

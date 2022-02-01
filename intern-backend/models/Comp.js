@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const CompanySchema = new mongoose.Schema(
     {
         userId: { type: String, required: true },
+        name:{type:String},
         about:{type:String},
         location:{type: String},
         phone:{type:String},
