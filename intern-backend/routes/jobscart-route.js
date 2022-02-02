@@ -44,9 +44,9 @@ router.delete("/:id",async(req,res)=>{
 });
 
 //GET USER JOBS
-router.get('/find/:userId',async(req,res)=>{
+router.get('/find/:compId',async(req,res)=>{
     try{
-        const job=await Job.findOne({userId: req.params.userId});
+        const job=await Job.find({compId: req.params.compId});
         res.status(200).json(job);
     }catch(err){
         res.status(500).json(err)

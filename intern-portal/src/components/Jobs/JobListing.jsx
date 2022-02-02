@@ -1,8 +1,9 @@
-import { Card,Button } from '@mui/material';
+import { Card,Button, Container, Grid } from '@mui/material';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import JobCard from './JobCard';
 
 const JobListing = () => {
 const[jobs,setJobs]=useState([]);
@@ -16,20 +17,14 @@ useEffect(()=>{
     fetchJobs();
 },[]);
 
-  return <div>
+  return <div className="row" style={{ "white-space": "nowrap" }}>
       
-      {jobs.map(j=>(
-          <Card>
-<h1>{j.company}</h1>
-<p>{j.profile}</p>
-<p>{j.perks}</p>
-<Link to={`/company/${j.compId}`}>
-<Button variant="contained">Company Profile</Button>
-</Link>
-          </Card>
-         
+      {jobs.map(job=>(
+          
+        <JobCard job={job}/>
+       
       ))}
-      
+       
       
       
   </div>;

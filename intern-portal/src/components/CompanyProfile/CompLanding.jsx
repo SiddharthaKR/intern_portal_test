@@ -82,9 +82,9 @@ const handleCompSubmit=async(e)=>{
           Hi {companyUser.username}
       </Typography>
       <Button variant='outlined'>Company Profile</Button>
-      <Button variant='outlined' >Add company</Button>
-      <Button variant='outlined'>Post Job</Button>
-      <Button variant='outlined'>Get Stats</Button>
+      <Button variant='outlined' >Register Your Company </Button>
+      
+     
       <form onSubmit={handleCompSubmit}>
           <h4>Add your Company</h4>
           <Paper>
@@ -98,10 +98,7 @@ const handleCompSubmit=async(e)=>{
           <Button variant="outlined" type="submit">Add</Button>
           </Paper>
       </form>
-      <h2>Post Job</h2>
-      <Paper elevation={3}>
-       
-      </Paper>
+      
      
 
   </Container>
