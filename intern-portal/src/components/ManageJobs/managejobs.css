@@ -1,0 +1,48 @@
+.company-statistics-container{
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    box-shadow: gray 1px 0px 1px 1px;
+}
+.company-statistics-tile-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.company-statistics-tile-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    box-shadow: gray 1px 0px 1px 1px;
+}
+.company-statistics-tile-content-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.jobsposted{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+}
+.jobs-posted-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+}

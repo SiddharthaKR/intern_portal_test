@@ -9,8 +9,7 @@ import StudentEdit from "./components/EditProfile/EditStudent/StudentEdit";
 import CompLanding from "./components/CompanyProfile/CompLanding";
 import JobListing from "./components/Jobs/JobListing";
 import CompanyProfile from "./components/CompanyProfile/CompanyProfile";
-
-
+import ManageJobs from "./components/ManageJobs/ManageJobs";
 function App() {
 
   const [user,setUser]= useState(null)
@@ -52,6 +51,7 @@ console.log("---",user);
       <Route path="/jobs" element={ <JobListing/>} />
       <Route path="/profile" element={ <StudentProfile/>} />
       <Route path='/studentedit' element={< StudentEdit />} />
+      <Route path='/company/manage' element={<ManageJobs/>} />
        
     </Routes> 
     </div>
