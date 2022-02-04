@@ -31,8 +31,15 @@ router.post("/register",async(req,res)=>{
       try{
           const company=await Company.findById(req.params.id);
           if(company.userId===req.body.userId){
-              await post.updateOne({$set:req.body});
+              const updatedCompany = await Company.findByIdAndUpdate(
+                req.params.id,
+                {
+                  $set: req.body,
+                },
+                { new: true }
+              );
               res.status(200).json("copmany profile updated");
+              console.log(updatedCompany)
           }else{
               res.status(500).json(err);
           }

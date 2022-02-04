@@ -65,10 +65,12 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
 router.get(
   "/google/callback",
-  passport.authenticate("google",{
-    successRedirect: "http://localhost:3000/company/register",
-    failureRedirect: "/login/failed",
-  }),
+  passport.authenticate("google",{  failureRedirect: "/login/failed",}),
+  function(req, res) {
+    // Successful authentication, redirect profile.
+    res.redirect(`http://localhost:3000/company/register`);
+    //res.render('Outlook Succedd');
+  }
 );
 
 

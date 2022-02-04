@@ -9,7 +9,9 @@ const CompanySchema = new mongoose.Schema(
         phone:{type:String},
         email:{type:String},
         website:{type:String},
-        logo:{type:String}
+        logo:{type:String},
+        linkedin:{type:String},
+        visit: {type: Boolean,default: false}
     },
     { timestamps: true }
   );

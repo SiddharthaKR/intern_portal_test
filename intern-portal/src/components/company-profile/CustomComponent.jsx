@@ -5,7 +5,7 @@ import logo from '../images/iitglogo.png';
 import Button from "../Responsive/Button";
 import { IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
-import CompRegister from "../EditProfile/EditComp.jsx/CompRegister";
+import CompRegister from "../EditProfile/EditComp/CompRegister";
 import JobModal from '../CompanyProfile/JobModal'
 
 

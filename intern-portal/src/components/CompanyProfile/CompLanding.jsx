@@ -5,7 +5,9 @@ import { Avatar, Button, Paper, TextField, Typography } from '@mui/material';
 import axios from 'axios';
 import { FaWindows } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-
+import { useLocation } from 'react-router-dom'; 
+import logo from '../images/iitglogo.png';
+import { Box } from '@mui/system';
 
 
 const CompLanding = () => {
@@ -15,7 +17,8 @@ const CompLanding = () => {
   phone:'',
   email:'',
   website:'',
-  logo:''})
+  logo:'',
+linkedin:''})
 const navigate = useNavigate();
 const handleInput=(e)=>{
    const name= e.target.name;
@@ -25,6 +28,18 @@ const handleInput=(e)=>{
 }
 
   const [companyUser,setCompanyUser]= useState({});
+  const [company,setCompany]=useState({});
+
+const location=useLocation();
+const path=location.pathname.split('/')[2];
+
+  useEffect(()=>{
+    const getCompany=async()=>{
+    const res=await axios.get('/company/'+path);
+    setCompany(res.data);
+    }
+  getCompany()
+  },[path])
 
   const getCompanyUserdetails= async()=>{
       try{
@@ -75,34 +90,96 @@ const handleCompSubmit=async(e)=>{
 
 
 
-  return <div>
-  <Container>
-      <Avatar src={companyUser.email}/>
-      <Typography variant='h2'>
-          Hi {companyUser.username}
-      </Typography>
-      <Button variant='outlined'>Company Profile</Button>
-      <Button variant='outlined' >Register Your Company </Button>
-      
-     
-      <form onSubmit={handleCompSubmit}>
-          <h4>Add your Company</h4>
-          <Paper>
-          <TextField name="name" onChange={handleInput} id="standard-basic" value={text.name} label="Name" variant="standard" />
-          <TextField name="about" onChange={handleInput} id="standard-basic" value={text.about} label="About Company" multiline  maxRows={4} variant="standard" />
-          <TextField name="location" onChange={handleInput} id="standard-basic" value={text.location} label="Location" variant="standard" />
-          <TextField name="phone" onChange={handleInput} id="standard-basic" value={text.phone} label="Phone" variant="standard" />
-          <TextField name="email" onChange={handleInput} id="standard-basic" value={text.email} label="Email" variant="standard" />
-          <TextField name="website" onChange={handleInput} id="standard-basic" value={text.website} label="Webite" variant="standard" />
-          <TextField name="logo" onChange={handleInput} id="standard-basic" value={text.logo} label="Logo" variant="standard" />
-          <Button variant="outlined" type="submit">Add</Button>
-          </Paper>
-      </form>
-      
-     
+  return( <Container className='center-ele'>
+      {company?(<Button>View Profile</Button>):( <Box
+      component="form"
+      sx={{ mt: 2, paddingX: 45 }}
+      onSubmit={handleCompSubmit}
+    >
+      <Grid className="box-shadow form-pad" paddingX={6} container spacing={3}>
+        <Grid item lg={12} alignItems="center">
+           
+          <Typography variant="h4">Register Your Company</Typography>
+          
+          
+        </Grid>
 
-  </Container>
-  </div>;
+        <Grid item xs={12} className="flex form-inp">
+          <Avatar alt="Remy Sharp" src={logo} />
+          <Button>Upload your logo</Button>
+        </Grid>
+        <Grid item className="flex form-inp" xs={12}>
+          <label htmlFor="">Name</label>
+          <TextField
+            value={text.name}
+            name="name"
+            onChange={handleInput}
+            fullWidth
+          />
+        </Grid>
+        <Grid className="flex form-inp" item xs={12}>
+          <label htmlFor="">Phone</label>
+          <TextField
+            value={text.phone}
+            name="phone"
+            onChange={handleInput}
+            fullWidth
+          />
+        </Grid>
+        <Grid className="flex form-inp" item xs={12}>
+          <label htmlFor="">Location</label>
+          <TextField
+            value={text.location}
+            name="location"
+            onChange={handleInput}
+            fullWidth
+          />
+        </Grid>
+        <Grid className="flex form-inp" item xs={12}>
+          <label htmlFor="">Email Id</label>
+          <TextField
+            value={text.email}
+            name="email"
+            onChange={handleInput}
+            fullWidth
+          />
+        </Grid>
+        <Grid className="flex form-inp" item xs={12}>
+          <label htmlFor="">Linked In Id</label>
+          <TextField
+            value={text.linkedin}
+            name="linkedin"
+            onChange={handleInput}
+            fullWidth
+          />
+        </Grid>
+        <Grid className="flex form-inp" item xs={12}>
+          <label htmlFor="">Website</label>
+          <TextField
+            value={text.website}
+            name="website"
+            onChange={handleInput}
+            fullWidth
+          />
+        </Grid>
+        <Grid className="flex form-inp" item xs={12}>
+          <label htmlFor="">About</label>
+          <TextField
+            value={text.about}
+            name="about"
+            onChange={handleInput}
+            multiline
+            fullWidth
+            maxRows={4}
+          />
+        </Grid>
+        <Button type="submit" variant="outlined">Register</Button>
+      </Grid>
+    </Box>)
+}
+         </Container>
+         )
+  
 };
 
 export default CompLanding;

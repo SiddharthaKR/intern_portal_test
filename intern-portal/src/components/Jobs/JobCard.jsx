@@ -59,8 +59,8 @@ const handleEdit=async(req,res)=>{
     <h1>{job.company}</h1>
     <p>{job.profile}</p>
     <p>{job.about}</p>
-   <Button color='primary' onClick={handleDelete}  variant="contained">Delete</Button>
-   <Button color='primary' onClick={handleEdit}  variant="contained">Edit</Button>
+   <Button color='primary'   variant="contained">Know more</Button>
+  
     </div>
   </Card>)
 };

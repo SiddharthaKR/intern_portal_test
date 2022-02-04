@@ -5,9 +5,23 @@ import "./compReg.css";
 import axios from "axios";
 import { useLocation } from 'react-router-dom'; 
 
-const CompRegister = ({ company,setState }) => {
-  const [companyUser, setCompanyUser] = useState({});
+const CompRegister = ({ setState }) => {
+  const [companyUser,setCompanyUser]=useState({})
   const location=useLocation();
+  const path=location.pathname.split('/')[2];
+
+  const [company,setCompany]=useState({})
+  useEffect(()=>{
+    const getCompany=async()=>{
+    const res=await axios.get('/company/'+path);
+    setCompany(res.data);
+    }
+  getCompany()
+  },[companyUser])
+
+
+
+
   const getCompanyUserdetails = async () => {
     try {
       const res = await fetch("/auth/getuser", {
@@ -31,49 +45,45 @@ const CompRegister = ({ company,setState }) => {
     getCompanyUserdetails();
   }, []);
 
-  const handleCompSubmit = async () => {
+
+  const handleUpdate = async () => {
    
-    const newCompany = {
-      userId: companyUser._id,
-      name: text.name,
-      about: text.about,
-      location: text.location,
-      phone: text.phone,
-      email: text.email,
-      website: text.website,
-      logo: text.logo,
+    const updatedData = {
+      userId: company._id,
+      logo: company.logo,
+      name: company.name,
+      phone: company.phone,
+      location: company.location,
+      email: company.email,
+      linkedin:company.linkedin,
+      website: company.website,
+      about: company.about,
+      
     };
     try {
-      await axios.post("/company/register", newCompany);
-      console.log("Company added");
+      await axios.put(`/company/${company._id}`, {
+        updatedData
+      });
+      console.log("Company updated successfully");
       window.location.reload();
     } catch (err) {
       console.log(err);
     }
   };
 
-  const [text, setText] = useState({
-    name: "",
-    about: "",
-    location: "",
-    phone: "",
-    email: "",
-    website: "",
-    logo: "",
-  });
 
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
-    setText({ ...text, [name]: value });
+    setCompany({...company,[name]: value });
   };
 
   return (
     <Box
       component="form"
       sx={{ mt: 2, paddingX: 45 }}
-      onSubmit={handleCompSubmit}
+      
     >
       <Grid className="box-shadow form-pad" paddingX={6} container spacing={3}>
         <Grid item lg={12} alignItems="center">
@@ -91,8 +101,10 @@ const CompRegister = ({ company,setState }) => {
         <Grid item className="flex form-inp" xs={12}>
           <label htmlFor="">Name</label>
           <TextField
+          
             value={company.name}
             name="name"
+            autoFocus={true}
             onChange={handleInput}
             fullWidth
           />
@@ -153,14 +165,11 @@ const CompRegister = ({ company,setState }) => {
             maxRows={4}
           />
         </Grid>
-        {company ? (
-          <div>
-            <Button variant="outlined">Save</Button>
+        
+            <Button onClick={handleUpdate} type="submit" variant="outlined">Update</Button>
             <Button onClick={()=>setState(false)} variant='outlined' color="danger">Close</Button>
-          </div>
-        ) : (
-          <Button type="submit" variant="outlined">Register</Button>
-        )}
+          
+        
       </Grid>
     </Box>
   );

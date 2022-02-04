@@ -9,10 +9,31 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import logo from '../images/iitglogo.png';
+import axios from 'axios';
 
 
 const TestjobCard = ({job}) => {
-    const theme = useTheme();
+ 
+    const handleDelete=async(req,res)=>{
+        try{
+          await axios.delete(`/jobs/${job._id}`);
+          console.log('deleted')
+          window.location.reload();
+        }catch(err){
+        console.log(err);
+        }
+        
+      }
+      const handleEdit=async(req,res)=>{
+        try{
+      
+        }catch(err){
+          
+        }
+      }  
+
+
+    
   return <Card sx={{ display: 'flex' }}>
   <CardMedia
   component="img"
@@ -35,9 +56,8 @@ const TestjobCard = ({job}) => {
       </CardContent>
   </Box>
   <CardActions>
-          <Button variant="contained" sx={{backgroundColor:'#3acbf7', marginRight:'10px'}}>
-              Apply
-          </Button>
+  <Button color='primary' onClick={handleDelete}  variant="contained">Delete</Button>
+   <Button color='primary' onClick={handleEdit}  variant="contained">Edit</Button>
   </CardActions>
   </Box>
 </Card>;

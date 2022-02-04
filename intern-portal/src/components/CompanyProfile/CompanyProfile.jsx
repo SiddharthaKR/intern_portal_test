@@ -4,7 +4,7 @@ import { useEffect,useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import JobModal from "./JobModal";
 import JobCard from '../Jobs/JobCard';
-import CompRegister from '../EditProfile/EditComp.jsx/CompRegister';
+
 
 const CompanyProfile = () => {
 const location=useLocation();
@@ -39,7 +39,7 @@ useEffect(()=>{
 
 
   return( <>
-  <CompRegister />
+ 
     {/* <h1>{company.about}</h1>
     <p>{company.location}</p>
     <p>{company.phone}</p> */}
