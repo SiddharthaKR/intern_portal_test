@@ -1,0 +1,19 @@
+.search-tags{
+    width: 150px;
+    height: 40px;	 
+    border-radius: 20px;
+    padding: 5px;
+    border:gray;
+    background-color: #D5D5D5;
+    margin-top:40px;
+    margin-right:20px;
+    cursor:pointer;
+    box-shadow: rgb(119, 119, 119) 0px 0.1px 1px 1px;
+}
+.search-tags:hover{
+    background-color: #b8b8b8;
+}
+/* On click */
+.search-tags:active{
+    box-shadow: none;
+}
