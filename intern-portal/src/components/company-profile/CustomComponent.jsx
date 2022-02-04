@@ -6,8 +6,11 @@ import Button from "../Responsive/Button";
 import { IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import CompRegister from "../EditProfile/EditComp/CompRegister";
-import JobModal from '../CompanyProfile/JobModal'
+import JobModal from '../CompanyProfile/JobModal';
 import { CompanyContext } from "../../context/CompanyContext";
+import About from "./About";
+import OtherDetails from "./OtherDetails";
+import TestjobCard from "../Jobs/TestjobCard";
 
 
 
@@ -47,8 +50,10 @@ const CustomComponent = ({company }) => {
       </div>
     </div>
   </div>
+  
    )
   }
+
 </div>;
 };
 

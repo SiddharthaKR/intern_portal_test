@@ -61,21 +61,21 @@ export default function Login() {
           <Tab label="For Company" {...a11yProps(1)} sx={{width:'50%'}}/>
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
+      <TabPanel className="center_ele"  value={value} index={0}>
        <div style={{display:'flex',flexDirection:'column',alignItems:'center', width:'inherit'}}>
          <div style={{fontSize:'20px',marginRight:'0 auto'}}>Please login to continue</div>
          <div>
-        <Button variant="contained" sx={{backgroundColor:'#3acbf7', marginRight:'10px',marginBottom:'20px'}}>
+        <Button onClick={outlook} variant="contained" sx={{backgroundColor:'#3acbf7', marginRight:'10px',marginBottom:'20px'}}>
             Login Via Outlook
           </Button>
           </div>
        </div>
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel className='center_ele' value={value} index={1}>
       <div style={{display:'flex',flexDirection:'column',alignItems:'center', width:'inherit'}}>
          <div style={{fontSize:'20px',marginRight:'0 auto'}}>Please login to continue</div>
          <div>
-        <Button variant="contained" sx={{backgroundColor:'#DB4437', marginRight:'10px',marginBottom:'20px'}}>
+        <Button onClick={google} variant="contained" sx={{backgroundColor:'#DB4437', marginRight:'10px',marginBottom:'20px'}}>
             Login Via Gmail
           </Button>
           </div>

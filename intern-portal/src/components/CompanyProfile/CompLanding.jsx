@@ -9,6 +9,8 @@ import { useLocation } from 'react-router-dom';
 import logo from '../images/iitglogo.png';
 import { Box } from '@mui/system';
 import { LoggedUserContext } from '../../context/LoggedUserContext';
+import { Link } from 'react-router-dom';
+
 
 
 const CompLanding = () => {
@@ -36,11 +38,12 @@ const path=location.pathname.split('/')[2];
 
   useEffect(()=>{
     const getCompany=async()=>{
-    const res=await axios.get('/company/'+path);
+    const res=await axios.get(`/company/${companyUser._id}`);
     setCompany(res.data);
+    console.log(company)
     }
   getCompany()
-  },[path])
+  },[companyUser])
 
   const getCompanyUserdetails= async()=>{
       try{
@@ -91,8 +94,14 @@ const handleCompSubmit=async(e)=>{
 
 
 
-  return( <Container className='center-ele'>
-      {company?(<Button>View Profile</Button>):( <Box
+  return(<>
+  
+    <Container className='center-ele'>
+      {company?(
+      <Link to={`/company/${companyUser._id}`}>
+      <Button>View Profile
+      </Button>
+      </Link>):( <Box
       component="form"
       sx={{ mt: 2, paddingX: 45 }}
       onSubmit={handleCompSubmit}
@@ -179,6 +188,7 @@ const handleCompSubmit=async(e)=>{
     </Box>)
 }
          </Container>
+         </>
          )
   
 };

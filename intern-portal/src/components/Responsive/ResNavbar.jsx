@@ -37,25 +37,24 @@ const ResNavbar = ({user}) => {
                
             </ul>
             <div className='flex btn-grp'>
-            <Link to="jobs">
-                        <Button >Jobs</Button>
-                    </Link>
+           
                 {user?(
                     <>
+                    <Link to="manage">
+                        <Button >Manage</Button>
+                    </Link>
                     <Link to="studentedit">
                         <Button >Edit Profile</Button>
                     </Link>
                      <Button onClick={logout}>Log Out</Button>
                     </>):
                     (
-                        <>
-                        <Link to="login">
-                        <Button className=''>Sign Up</Button>
-                        </Link>
+                        
+                        
                         <Link to="login">
                         <Button>Log In</Button>
                         </Link>  
-                       </> 
+                       
                     )
                 }
             

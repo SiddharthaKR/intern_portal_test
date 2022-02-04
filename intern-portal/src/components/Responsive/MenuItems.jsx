@@ -5,8 +5,8 @@ const MenuItems=[
         cName: 'nav-links'
     },
     {
-        title: 'Services',
-        url: '#',
+        title: 'Jobs',
+        url: '/jobs',
         cName: 'nav-links'
     },
    
@@ -15,16 +15,7 @@ const MenuItems=[
         url: '#',
         cName: 'nav-links'
     },
-    {
-        title: 'Sign up',
-        url: '#',
-        cName: 'nav-links-mobile'
-    },
-    {
-        title: 'Log In',
-        url: '#',
-        cName: 'nav-links-mobile'
-    },
+   
 ]
 
 export default MenuItems;

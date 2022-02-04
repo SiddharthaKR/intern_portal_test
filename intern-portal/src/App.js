@@ -11,6 +11,8 @@ import JobListing from "./components/Jobs/JobListing";
 import CompanyProfile from "./components/CompanyProfile/CompanyProfile";
 import ManageJobs from "./components/ManageJobs/ManageJobs";
 import Comp from "./components/company-profile/Comp";
+import SearchPage from "./components/SearchPage/SearchPage"
+
 function App() {
 
   const [user,setUser]= useState(null)
@@ -49,11 +51,10 @@ console.log("---",user);
       <Route path="/login" element={<Login />}  />
       <Route exact path="/company/register"  element={ <CompLanding/>} />
       <Route  path="/company/:id" element={<Comp />} />
-      <Route path="/jobs" element={ <JobListing/>} />
       <Route path="/profile" element={ <StudentProfile/>} />
       <Route path='/studentedit' element={< StudentEdit />} />
-      <Route path='/company/manage' element={<ManageJobs/>} />
-       
+      <Route exact path='/manage' element={<ManageJobs/>} />
+      <Route exact path='/jobs' element={<SearchPage/>} />
     </Routes> 
     </div>
       
