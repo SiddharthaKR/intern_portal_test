@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CompanyProvider } from './context/CompanyContext';
+import { LoggedUserContext, LoggedUserProvider } from './context/LoggedUserContext';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
+    <LoggedUserProvider>
+    <CompanyProvider >
     <App />
+    </CompanyProvider>
+    </LoggedUserProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

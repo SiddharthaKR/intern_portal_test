@@ -41,12 +41,17 @@ function Alert(props) {
 
 
 
-const JobModal = ({compId}) => {
+const JobModal = ({company}) => {
+ 
+
+
+
+
 
   const classes = useStyles();
 const [open, setOpen] = useState(false);
   const [openAlert, setOpenAlert] = useState(false);
-  console.log('see here it is'+compId)
+  
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -79,7 +84,7 @@ const handleInput=(e)=>{
 const submitHandler=async()=>{
 
 const newJob={
-  compId:compId,
+  compId:company._id,
   company:text.company,
   profile:text.profile,
   duration:text.duration,

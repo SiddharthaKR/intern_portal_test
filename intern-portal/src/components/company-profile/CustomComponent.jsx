@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect, useContext} from "react";
 import ReactRoundedImage from "react-rounded-image";
 import "./customcomponent.css";
 import logo from '../images/iitglogo.png';
@@ -7,6 +7,7 @@ import { IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import CompRegister from "../EditProfile/EditComp/CompRegister";
 import JobModal from '../CompanyProfile/JobModal'
+import { CompanyContext } from "../../context/CompanyContext";
 
 
 
@@ -15,6 +16,8 @@ const CustomComponent = ({company }) => {
 
   const [updateMode,setupdateMode]=useState(false)
 
+  const[comp,setCompany]=useContext(CompanyContext);
+ console.log(comp._id);
   return  <div className="custom-component">
     {
       updateMode? (<CompRegister company={company} setState={updateMode=>setupdateMode(updateMode)}/>):
@@ -40,7 +43,7 @@ const CustomComponent = ({company }) => {
       <p style={{fontSize: "medium", color: "black", margin:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <div style={{display:"flex", flexDirection:"column"}}>
       <Button>Visit Website</Button>
-      <JobModal compId={company._id}/>
+      <JobModal/>
       </div>
     </div>
   </div>

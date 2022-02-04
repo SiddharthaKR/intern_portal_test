@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import { Avatar, Button, Paper, TextField, Typography } from '@mui/material';
@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'; 
 import logo from '../images/iitglogo.png';
 import { Box } from '@mui/system';
+import { LoggedUserContext } from '../../context/LoggedUserContext';
 
 
 const CompLanding = () => {
@@ -27,7 +28,7 @@ const handleInput=(e)=>{
    setText({...text, [name]:value})
 }
 
-  const [companyUser,setCompanyUser]= useState({});
+  const [companyUser,setCompanyUser]= useContext(LoggedUserContext);
   const [company,setCompany]=useState({});
 
 const location=useLocation();

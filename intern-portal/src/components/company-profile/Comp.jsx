@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CustomComponent from "./CustomComponent";
 import About from "./About";
 import OtherDetails from "./OtherDetails";
@@ -7,14 +7,16 @@ import TestjobCard from '../Jobs/TestjobCard'
 import EditIcon from '@mui/icons-material/Edit';
 import axios from "axios"
 import { useLocation } from 'react-router-dom'; 
+import { CompanyContext } from "../../context/CompanyContext";
 
 const Comp = () => {
 
 const location=useLocation();
 const path=location.pathname.split('/')[2];
 
-const [company,setCompany]=useState({})
+
 const[userjobs,setUserJobs]=useState([]);
+const [company,setCompany]=useContext(CompanyContext)
 
 useEffect(()=>{
   const getCompany=async()=>{
