@@ -93,6 +93,7 @@ const newJob={
 try{
 await axios.post("/jobs",newJob);
 console.log("JOB POSTED");
+window.location.reload();
 }catch(err){
 console.log(err);
 }

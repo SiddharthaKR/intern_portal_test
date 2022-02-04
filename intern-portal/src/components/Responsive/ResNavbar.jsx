@@ -37,6 +37,9 @@ const ResNavbar = ({user}) => {
                
             </ul>
             <div className='flex btn-grp'>
+            <Link to="jobs">
+                        <Button >Jobs</Button>
+                    </Link>
                 {user?(
                     <>
                     <Link to="studentedit">
