@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
+import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 
 const Slide = ({ slides }) => {
   const [current, setCurrent] = useState(0);
@@ -17,8 +19,9 @@ const Slide = ({ slides }) => {
 
   return (
     <div className="slide-bg flex center_ele">
-      <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+     
+      <ArrowBackIosOutlinedIcon className="left-arrow" onClick={prevSlide}/>
+      <ArrowForwardIosOutlinedIcon className="right-arrow" onClick={nextSlide}/>
       {slides.map((slide, index) => {
         return (
           <div

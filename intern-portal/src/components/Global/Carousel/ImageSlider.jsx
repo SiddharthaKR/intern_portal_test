@@ -4,6 +4,7 @@ import {FaArrowAltCircleRight,FaArrowAltCircleLeft} from 'react-icons/fa'
 import { useState } from 'react/cjs/react.development';
 import { SliderData } from './SliderData'
 
+
 const ImageSlider = ({ slides }) => {
     const [current, setCurrent] = useState(0);
     const length = slides.SliderData.length;

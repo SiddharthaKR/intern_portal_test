@@ -5,6 +5,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import googleimg from '../images/google.png'
+import { Avatar } from '@mui/material';
+import outlookimg from '../images/Outlook-Logo.png'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,21 +64,25 @@ export default function Login() {
           <Tab label="For Company" {...a11yProps(1)} sx={{width:'50%'}}/>
         </Tabs>
       </Box>
-      <TabPanel className="center_ele"  value={value} index={0}>
-       <div style={{display:'flex',flexDirection:'column',alignItems:'center', width:'inherit'}}>
-         <div style={{fontSize:'20px',marginRight:'0 auto'}}>Please login to continue</div>
+      <TabPanel sx={{height:'168px'}}  className="center_ele"  value={value} index={0}>
+       <div style={{display:'flex',flexDirection:'column',alignItems:'center', width:'inherit', height:'168px'}}>
+        
          <div>
-        <Button onClick={outlook} variant="contained" sx={{backgroundColor:'#3acbf7', marginRight:'10px',marginBottom:'20px'}}>
+        <Button
+         startIcon={<Avatar variant="square" sx={{width:'27px',height:'29px',}}  src={outlookimg}/>}
+         onClick={outlook} variant="contained" sx={{backgroundColor:'#2962ff',marginTop:'3rem',  marginRight:'10px',}}>
             Login Via Outlook
           </Button>
           </div>
        </div>
       </TabPanel>
-      <TabPanel className='center_ele' value={value} index={1}>
+      <TabPanel sx={{height:'168px'}} className='center_ele' value={value} index={1}>
       <div style={{display:'flex',flexDirection:'column',alignItems:'center', width:'inherit'}}>
-         <div style={{fontSize:'20px',marginRight:'0 auto'}}>Please login to continue</div>
+         
          <div>
-        <Button onClick={google} variant="contained" sx={{backgroundColor:'#DB4437', marginRight:'10px',marginBottom:'20px'}}>
+        <Button className='google-btn'
+        startIcon={<Avatar variant="square" sx={{width:'27px',height:'29px',background:'white'}}  src={googleimg} />}
+        onClick={google} variant="contained" sx={{ paddingX:'17px',paddingY:'6px', backgroundColor:'#2962ff',color:'white',marginTop:'3rem', marginRight:'10px',fontSize:"16px"}}>
             Login Via Gmail
           </Button>
           </div>

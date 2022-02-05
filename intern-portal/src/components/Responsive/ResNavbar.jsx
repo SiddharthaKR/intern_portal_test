@@ -26,33 +26,24 @@ const ResNavbar = ({user}) => {
   <i className={clicked?"fas fa-times": 'fas fa-bars'}></i>
             </div>
             <ul className={clicked? 'nav-menu active':'nav-menu' }>
-            {MenuItems.map((item,index)=>{
-                return(
-                    <li key={index}><a className={item.cName} href={item.url}>
-                        {item.title}
-                        </a></li>
-                )
-            })}
-
-               
+            <Link to='/'><li className='nav-links' >Home</li></Link>
+            <Link to='/jobs'><li className='nav-links' >Jobs</li></Link>
+            <Link to='/manage'><li className='nav-links' >Manage Profile</li></Link>
             </ul>
             <div className='flex btn-grp'>
            
                 {user?(
                     <>
-                    <Link to="manage">
-                        <Button >Manage</Button>
-                    </Link>
                     <Link to="studentedit">
-                        <Button >Edit Profile</Button>
+                        <Button className="nav-btn">Edit Profile</Button>
                     </Link>
-                     <Button onClick={logout}>Log Out</Button>
+                     <Button className="nav-btn" onClick={logout}>Log Out</Button>
                     </>):
                     (
                         
                         
-                        <Link to="login">
-                        <Button>Log In</Button>
+                        <Link className='nav-btn' to="login">
+                        <Button >Log In</Button>
                         </Link>  
                        
                     )
