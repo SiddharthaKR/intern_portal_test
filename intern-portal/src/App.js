@@ -33,6 +33,7 @@ useEffect(()=>{
       throw new Error("authentication failed")
     }).then(resObject=>{
        setUser(resObject.user)
+       console.log("love youuuuuu"+resObject.user)
     }).catch((err) => {
       console.log(err);
     }); 

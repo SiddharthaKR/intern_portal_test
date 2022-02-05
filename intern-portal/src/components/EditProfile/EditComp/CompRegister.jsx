@@ -5,7 +5,7 @@ import "./compReg.css";
 import axios from "axios";
 import { useLocation } from 'react-router-dom'; 
 
-const CompRegister = ({ setState }) => {
+const CompRegister = ({ setState,changev }) => {
   const [companyUser,setCompanyUser]=useState({})
   const location=useLocation();
   const path=location.pathname.split('/')[2];
@@ -87,16 +87,16 @@ const CompRegister = ({ setState }) => {
     >
       <Grid className="box-shadow form-pad" paddingX={6} container spacing={3}>
         <Grid item lg={12} alignItems="center">
-            {company? <Typography align="center" variant="h4" mt={2}>
+        <Typography align="center" variant="h4" mt={2}>
             Edit Your Details
-          </Typography>:<Typography variant="h4">Register Your Company</Typography>}
+          </Typography>
           
           
         </Grid>
 
         <Grid item xs={12} className="flex form-inp">
           <Avatar alt="Remy Sharp" src={logo} />
-          <Button>Upload your logo</Button>
+          <Button variant="outlined">Upload your logo</Button>
         </Grid>
         <Grid item className="flex form-inp" xs={12}>
           <label htmlFor="">Name</label>
@@ -106,7 +106,7 @@ const CompRegister = ({ setState }) => {
             name="name"
             autoFocus={true}
             onChange={handleInput}
-            fullWidth
+           
           />
         </Grid>
         <Grid className="flex form-inp" item xs={12}>
@@ -115,7 +115,7 @@ const CompRegister = ({ setState }) => {
             value={company.phone}
             name="phone"
             onChange={handleInput}
-            fullWidth
+        
           />
         </Grid>
         <Grid className="flex form-inp" item xs={12}>
@@ -124,7 +124,7 @@ const CompRegister = ({ setState }) => {
             value={company.location}
             name="location"
             onChange={handleInput}
-            fullWidth
+           
           />
         </Grid>
         <Grid className="flex form-inp" item xs={12}>
@@ -133,7 +133,7 @@ const CompRegister = ({ setState }) => {
             value={company.email}
             name="email"
             onChange={handleInput}
-            fullWidth
+          
           />
         </Grid>
         <Grid className="flex form-inp" item xs={12}>
@@ -142,7 +142,7 @@ const CompRegister = ({ setState }) => {
             value={company.linkedin}
             name="linkedin"
             onChange={handleInput}
-            fullWidth
+           
           />
         </Grid>
         <Grid className="flex form-inp" item xs={12}>
@@ -151,7 +151,7 @@ const CompRegister = ({ setState }) => {
             value={company.website}
             name="website"
             onChange={handleInput}
-            fullWidth
+            
           />
         </Grid>
         <Grid className="flex form-inp" item xs={12}>
@@ -161,14 +161,16 @@ const CompRegister = ({ setState }) => {
             name="about"
             onChange={handleInput}
             multiline
-            fullWidth
+          
             maxRows={4}
           />
         </Grid>
-        
+        <Grid item style={{width:"100%",display:"flex",justifyContent:"space-evenly"}} >
             <Button onClick={handleUpdate} type="submit" variant="outlined">Update</Button>
-            <Button onClick={()=>setState(false)} variant='outlined' color="danger">Close</Button>
-          
+            <Button onClick={()=>{
+              changev(false)
+              setState(false)}} variant='outlined' color="danger">Close</Button>
+          </Grid>
         
       </Grid>
     </Box>

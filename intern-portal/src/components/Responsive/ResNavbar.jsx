@@ -33,12 +33,12 @@ const ResNavbar = ({user}) => {
             <div className='flex btn-grp'>
            
                 {user?(
-                    <>
-                    <Link to="studentedit">
-                        <Button className="nav-btn">Edit Profile</Button>
-                    </Link>
-                     <Button className="nav-btn" onClick={logout}>Log Out</Button>
-                    </>):
+                    <div className='nav-btn flex'>
+                    <Link className='nav-btn'style={{marginRight:'4px'}} to="studentedit">
+                        <Button >Edit Profile</Button>
+                    </Link >
+                     <Button  className='nav-btn' onClick={logout}>Log Out</Button>
+                    </div>):
                     (
                         
                         

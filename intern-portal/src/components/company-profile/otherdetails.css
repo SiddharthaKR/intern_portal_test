@@ -1,7 +1,6 @@
 .other-details{
-    width: 65%;
-    margin: 10px 17.5%;
-    box-shadow: gainsboro 5px 5px 10px;
+    padding: 4px 40px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
     border-radius: 10px;
     padding: 20px;
     
@@ -29,7 +28,7 @@
     font-size: 1.5rem;
     font-weight: 200;
 }
-@media screen and (max-width: 1024px){
+/* @media screen and (max-width: 1024px){
     .other-details{
         width: 80%;
         margin: 10px 17.5%;
@@ -54,4 +53,28 @@
         flex-direction: column;
     }
 
+} */
+
+
+@media screen and (max-width: 802px){
+    .list{
+        padding: 0px;
+    }
+    .list-2 ul li{
+      justify-content: flex-start;
+        align-items: right;
+    }
+    .list-1 ul li{
+        justify-content: flex-start;
+        align-items: right;
+    }
+    .list-1,.list-2{
+        width: 30%;
+    }
+}
+@media screen and (max-width: 802px){
+    .list{
+        flex-direction: column;
+    }
+   
 }

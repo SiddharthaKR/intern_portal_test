@@ -10,6 +10,10 @@ import logo from '../images/iitglogo.png';
 import { Box } from '@mui/system';
 import { LoggedUserContext } from '../../context/LoggedUserContext';
 import { Link } from 'react-router-dom';
+import { CompanyContext } from '../../context/CompanyContext';
+import TemporaryPage from './TemporaryPage';
+import img from "../images/temporary.png"
+import './temp.css'
 
 
 
@@ -31,7 +35,7 @@ const handleInput=(e)=>{
 }
 
   const [companyUser,setCompanyUser]= useContext(LoggedUserContext);
-  const [company,setCompany]=useState({});
+  const [company,setCompany]=useContext(CompanyContext);
 
 const location=useLocation();
 const path=location.pathname.split('/')[2];
@@ -97,11 +101,30 @@ const handleCompSubmit=async(e)=>{
   return(<>
   
     <Container className='center-ele'>
-      {company?(
-      <Link to={`/company/${companyUser._id}`}>
+      {company?(<>
+        <Grid  container spacing={3}>
+      <Grid className='center-ele flex' sx={{flexDirection:'column', justifyContent:'center'}} item lg={6}>
+     <Typography variant='h2'>
+         Let's Build The Future Together
+     </Typography>
+     <Typography variant='h6'>
+         Find your candidates
+     </Typography>
+     <Link className='my-3' to={`/company/${companyUser._id}`}>
+      <Button variant='outlined'>View Profile
+      </Button>
+      </Link> 
+      </Grid>
+      <Grid item lg={6}>
+       <img className='temp-img' src={img}></img>
+      </Grid>
+    
+  </Grid>;
+      {/* <Link to={`/company/${companyUser._id}`}>
       <Button>View Profile
       </Button>
-      </Link>):( <Box
+      </Link> */}
+      </>):( <Box
       component="form"
       sx={{ mt: 2, paddingX: 45 }}
       onSubmit={handleCompSubmit}

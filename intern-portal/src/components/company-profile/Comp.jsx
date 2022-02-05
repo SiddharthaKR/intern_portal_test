@@ -16,7 +16,10 @@ const path=location.pathname.split('/')[2];
 
 
 const[userjobs,setUserJobs]=useState([]);
-const [company,setCompany]=useContext(CompanyContext)
+const [company,setCompany]= useState({})
+const [updateMode,setupdateMode]=useState(false)
+
+console.log(company._id)
 
 useEffect(()=>{
   const getCompany=async()=>{
@@ -38,9 +41,9 @@ getCompJobs()
   return (
     <>
     
-      <CustomComponent company={company} />
+      <CustomComponent setv={setupdateMode} company={company} />
       {
-        company&&(<>
+       !updateMode&&company&&(<>
         <About company={company}/>
           <OtherDetails company={company}/>
           {/* <JobPosted userjobs={userjobs} company={company}/> */}

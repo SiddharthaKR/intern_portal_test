@@ -57,7 +57,7 @@ export default function Login() {
 
   return (
     <div style={{display:'flex',justifyContent:'center',marginTop:'10vh'}}>
-    <Box sx={{ width: '60%',height:'50vh',boxShadow:'gray 1px 1px 4px 1px',borderRadius:'20px' }}>
+    <Box sx={{border:'none', width: '60%',height:'50vh',boxShadow:' rgba(0, 0, 0, 0.15) 0px 5px 15px 0px',borderRadius:'20px' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{display:'flex',justifyContent:'evenly'}} centered>
           <Tab label="For Students" {...a11yProps(0)} sx={{width:'50%'}}/>

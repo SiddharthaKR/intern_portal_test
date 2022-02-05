@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Paper from '@material-ui/core/paper'
 import axios from "axios";
+import { Typography } from '@mui/material';
 
 const EditDetails = () => {
 
@@ -83,21 +84,43 @@ const updateDetails= async(e)=>{
 
 
   return (
-  <form method='post' action="/auth/editstudentdetails">
-  <Paper elevation={2} style={{maxWidth:1200
-  }}>
- <Grid conainer spacing={3}> 
-<TextField name="username" variant="standard" value={studentDetails.username} onChange={handleInput} label="Name" />
-<TextField name="rollno" variant="standard" value={studentDetails.rollno} onChange={handleInput} label="Roll NO" />
-<TextField name="branch" variant="standard" value={studentDetails.branch} onChange={handleInput} label="Branch" />
-<TextField name="yearofgraduation" variant="standard" value={studentDetails.yearofgraduation} onChange={handleInput} label="Year of Graduation" />
-<TextField name="linkedin" variant="standard" value={studentDetails.linkedin} onChange={handleInput} label="Linked In id" />
-<TextField name="email" variant="standard" value={studentDetails.email} onChange={handleInput} label="Email Id" />
-<TextField name="about" variant="outlined" onChange={handleInput} multiline rows={4} label="About" />
-<input type="submit" onClick={updateDetails} />
- </Grid>
+  <form method='post' action="/auth/editstudentdetails"  >
 
-  </Paper>
+ <Grid conainer spacing={3}> 
+ <Grid item>
+   <Typography>Name</Typography>
+<TextField name="username" variant="standard" value={studentDetails.username} onChange={handleInput}/>
+</Grid>
+<Grid item>
+<Typography>Roll no</Typography>
+<TextField name="rollno" variant="standard" value={studentDetails.rollno} onChange={handleInput}  />
+</Grid>
+<Grid item>
+<Typography>Branch</Typography>
+<TextField name="branch" variant="standard" value={studentDetails.branch} onChange={handleInput}  />
+</Grid>
+<Grid item>
+<Typography>Year of Graduation</Typography>
+<TextField name="yearofgraduation" variant="standard" value={studentDetails.yearofgraduation} onChange={handleInput} />
+</Grid>
+<Grid item>
+<Typography>Linked In</Typography>
+<TextField name="linkedin" variant="standard" value={studentDetails.linkedin} onChange={handleInput}  />
+</Grid>
+<Grid item>
+<Typography>Email</Typography>
+<TextField name="email" variant="standard" value={studentDetails.email} onChange={handleInput}  />
+</Grid>
+<Grid item>
+<Typography>About</Typography>
+<TextField name="about" variant="outlined" onChange={handleInput} multiline rows={4} />
+</Grid>
+<Grid item>
+<input type="submit" onClick={updateDetails} />
+</Grid>
+</Grid> 
+
+ 
   </form>)
 };
 

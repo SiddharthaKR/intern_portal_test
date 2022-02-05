@@ -9,6 +9,7 @@ import year_of_graduation_icon from '../images/year_of_graduation_icon.png';
 class OtherDetails extends React.Component{
     render(){
         return(
+            <div className="profile-pad">
             <div className="other-details">
                 <h3>Other Details</h3>
                 <div className="list flex">
@@ -41,6 +42,7 @@ class OtherDetails extends React.Component{
                         </ul>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }

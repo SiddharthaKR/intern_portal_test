@@ -57,8 +57,14 @@ passport.use(new OutlookStrategy({
     callbackURL: '/auth/outlook/callback'
   },
   function(accessToken, refreshToken, profile, done) {
+    var user = {
+      outlookId: profile._json.Id,
+      name: profile._json.DisplayName,
+      email: profile._json.EmailAddress,
+     // accessToken:  accessToken
+  };
   //check if user already exist in our db
-  StudentUser.findOne({outlookId:profile._json.Id}).then(
+  StudentUser.findOne({outlookId:user.outlookId}).then(
     (currentUser)=>{
       if(currentUser){
 //already hv d user
@@ -68,9 +74,9 @@ done(null, currentUser);
       }
       else{
         new StudentUser({
-          username: profile._json.DisplayName,
-          email: profile._json.EmailAddress,
-          outlookId: profile._json.Id,           
+          username: user.name,
+          email: user.email,
+          outlookId: user.outlookId,           
           profilePicture:"",
           rollno:"",
           branch:"",
