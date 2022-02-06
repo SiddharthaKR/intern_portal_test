@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CompanyProvider } from './context/CompanyContext';
 import { LoggedUserContext, LoggedUserProvider } from './context/LoggedUserContext';
+import { UserJobProvider } from './context/UserJobsContext';
 
 
 
@@ -12,7 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
     <LoggedUserProvider>
     <CompanyProvider >
+      <UserJobProvider>
     <App />
+    </UserJobProvider>
     </CompanyProvider>
     </LoggedUserProvider>
   </React.StrictMode>,

@@ -1,55 +1,57 @@
 import {Box,Button,Grid,Avatar,TextField,Typography} from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../../images/iitglogo.png";
 import "./compReg.css";
 import axios from "axios";
 import { useLocation } from 'react-router-dom'; 
+import { CompanyContext } from "../../../context/CompanyContext";
 
 const CompRegister = ({ setState,changev }) => {
-  const [companyUser,setCompanyUser]=useState({})
+  const [company,setCompany]=useContext(CompanyContext);
   const location=useLocation();
-  const path=location.pathname.split('/')[2];
+  console.log("here it is="+company.userId)
+  // const path=location.pathname.split('/')[2];
 
-  const [company,setCompany]=useState({})
-  useEffect(()=>{
-    const getCompany=async()=>{
-    const res=await axios.get('/company/'+path);
-    setCompany(res.data);
-    }
-  getCompany()
-  },[companyUser])
-
-
-
-
-  const getCompanyUserdetails = async () => {
-    try {
-      const res = await fetch("/auth/getuser", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application",
-        },
-      });
-      const data = await res.json();
-      setCompanyUser(data);
-      console.log("yooo" + companyUser);
-      if (!res.status === 200) {
-        const error = new Error(res.error);
-        throw error;
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    getCompanyUserdetails();
-  }, []);
+  // const [company,setCompany]=useState({})
+  // useEffect(()=>{
+  //   const getCompany=async()=>{
+  //   const res=await axios.get('/company/'+path);
+  //   setCompany(res.data);
+  //   }
+  // getCompany()
+  // },[companyUser])
 
 
-  const handleUpdate = async () => {
-   
+
+
+  // const getCompanyUserdetails = async () => {
+  //   try {
+  //     const res = await fetch("/auth/getuser", {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application",
+  //       },
+  //     });
+  //     const data = await res.json();
+  //     setCompanyUser(data);
+  //     console.log("yooo" + companyUser);
+  //     if (!res.status === 200) {
+  //       const error = new Error(res.error);
+  //       throw error;
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  // useEffect(() => {
+  //   getCompanyUserdetails();
+  // }, []);
+
+
+  const handleUpdate = async (e) => {
+   e.preventDefault();
     const updatedData = {
-      userId: company._id,
+      userId: company.userId,
       logo: company.logo,
       name: company.name,
       phone: company.phone,
@@ -61,11 +63,17 @@ const CompRegister = ({ setState,changev }) => {
       
     };
     try {
-      await axios.put(`/company/${company._id}`, {
-        updatedData
-      });
+      await axios.put(`/company/${company._id}`, 
+        updatedData,{
+          headers: {
+            'Content-Type': 'application/json'
+            
+        }
+        }
+      );
       console.log("Company updated successfully");
-      window.location.reload();
+      changev(false)
+      setState(false)
     } catch (err) {
       console.log(err);
     }

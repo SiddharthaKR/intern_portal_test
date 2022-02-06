@@ -35,10 +35,10 @@ const handleInput=(e)=>{
 }
 
   const [companyUser,setCompanyUser]= useContext(LoggedUserContext);
-  const [company,setCompany]=useContext(CompanyContext);
+  const [company,setCompany]=useState();
 
-const location=useLocation();
-const path=location.pathname.split('/')[2];
+// const location=useLocation();
+// const path=location.pathname.split('/')[2];
 
   useEffect(()=>{
     const getCompany=async()=>{
@@ -120,10 +120,6 @@ const handleCompSubmit=async(e)=>{
       </Grid>
     
   </Grid>;
-      {/* <Link to={`/company/${companyUser._id}`}>
-      <Button>View Profile
-      </Button>
-      </Link> */}
       </>):( <Box
       component="form"
       sx={{ mt: 2, paddingX: 45 }}

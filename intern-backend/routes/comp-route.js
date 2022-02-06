@@ -27,25 +27,28 @@ router.post("/register",async(req,res)=>{
 
   //update company
 
-  router.put("/:id",async(req,res)=>{
-      try{
-          const company=await Company.findById(req.params.id);
-          if(company.userId===req.body.userId){
-              const updatedCompany = await Company.findByIdAndUpdate(
-                req.params.id,
-                {
-                  $set: req.body,
-                },
-                { new: true }
-              );
-              res.status(200).json("copmany profile updated");
-              console.log(updatedCompany)
-          }else{
-              res.status(500).json(err);
-          }
-      }catch(err){
+  router.put("/:id", async (req, res) => {
+    try {
+      const company = await Company.findById(req.params.id);
+      if (company.userId === req.body.userId) {
+        try {
+          const updatedCompany = await Company.findByIdAndUpdate(
+            req.params.id,
+            {
+              $set: req.body,
+            },
+            { new: true }
+          );
+          res.status(200).json(updatedCompany);
+        } catch (err) {
           res.status(500).json(err);
+        }
+      } else {
+        res.status(401).json("You can update only your company!");
       }
-  })
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
   
   module.exports =router;
