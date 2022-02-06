@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const JobSchema = new mongoose.Schema(
-    {
+    { userId:{type:String},
       compId:{type:String, required:true},
       company: {type:String, },
       profile:{type:String},

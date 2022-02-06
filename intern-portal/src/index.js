@@ -13,9 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
     <LoggedUserProvider>
     <CompanyProvider >
-      <UserJobProvider>
+      
     <App />
-    </UserJobProvider>
+    
     </CompanyProvider>
     </LoggedUserProvider>
   </React.StrictMode>,

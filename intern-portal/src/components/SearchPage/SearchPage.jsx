@@ -13,6 +13,7 @@ export default function SearchPage() {
 
 const[jobs,setJobs]=useState([]);
 
+
 useEffect(()=>{
     const fetchJobs= async()=>{
         const res=await axios.get('/jobs')
@@ -20,6 +21,7 @@ useEffect(()=>{
     }
     fetchJobs()
 },[]);
+
 
     return (<Grid container  sx={{height:"85vh",display:"flex", justifyContent:"flex-end"}} >
 <Grid item lg={8} sm={6}>
@@ -29,10 +31,23 @@ useEffect(()=>{
 <SearchBar />
 <Grid item>
     {
-        jobs.map(job=>(
-          <CompanyJobCard job={job}/>
-        ))
+        
+            jobs.map((job)=>
+               ( <CompanyJobCard alljob={job} />)
+            )
+    
     }
+    {/* {for(let c=0;i<companies.length;i++){
+         for(let j=0;j<jobs.length;j++){
+             if(c._id==j.compId){
+                 return()
+             }
+         }
+    }
+        jobs.map(job=>(
+          <CompanyJobCard alljob={job}/>
+        ))
+    } */}
     
 </Grid>
 </Grid>

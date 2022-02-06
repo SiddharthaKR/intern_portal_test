@@ -1,15 +1,18 @@
 import MuiAlert from "@material-ui/lab/Alert";
 import { Button,Container,Fab,FormControlLabel,FormLabel,makeStyles, MenuItem,Modal,Radio,RadioGroup,Snackbar,TextField,Tooltip, } from "@material-ui/core";
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { useEffect,useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
+import { CompanyContext } from "../../context/CompanyContext";
 
 
 
 
 const useStyles = makeStyles((theme) => ({
+
+ 
     
   container: {
     width: 500,
@@ -42,12 +45,12 @@ function Alert(props) {
 
 
 
-const JobModal = ({company,child}) => {
+const JobModal = ({child}) => {
  
 
 
 
-
+  const [company,setCompany]=useContext(CompanyContext);
 
   const classes = useStyles();
 const [open, setOpen] = useState(false);
@@ -85,6 +88,7 @@ const handleInput=(e)=>{
 const submitHandler=async()=>{
 
 const newJob={
+  userId:company.userId,
   compId:company._id,
   company:text.company,
   profile:text.profile,
