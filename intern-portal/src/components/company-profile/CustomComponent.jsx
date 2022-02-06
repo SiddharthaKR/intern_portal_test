@@ -29,7 +29,7 @@ const CustomComponent = ({company,setv }) => {
     
     <div className="secondary-container-1"> </div>
     <div className="tertiary-container-1" style={{color: "black"}}>
-    <Avatar  sx={{ width: 156 , height: 156 }} className="circle"  src={logo} />
+    <Avatar  sx={{ width: 156 , height: 156,backgroundColor:'white' }} className="circle"  src={logo} />
     <div className="col-flex mb-3">
       <div className="flex space-bet">
        <h3>{company.name}</h3>

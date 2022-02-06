@@ -6,8 +6,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActions } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
+import Button from '../Responsive/Button';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import logo from '../images/iitglogo.png';
 export default function CompanyJobCard() {
   const theme = useTheme();
@@ -38,7 +39,7 @@ export default function CompanyJobCard() {
                     <Button variant="contained" sx={{backgroundColor:'#3acbf7', marginRight:'10px'}}>
                         View Post
                     </Button>
-                    <Button variant="contained" sx={{backgroundColor:'#3acbf7', marginRight:'10px'}}> View Responses</Button>
+                    <Button  sx={{backgroundColor:'#3acbf7', marginRight:'10px'}}> View Responses</Button>
             </CardActions>
             </Box>
         </Card>

@@ -28,7 +28,9 @@ const ResNavbar = ({user}) => {
             <ul className={clicked? 'nav-menu active':'nav-menu' }>
             <Link to='/'><li className='nav-links' >Home</li></Link>
             <Link to='/jobs'><li className='nav-links' >Jobs</li></Link>
-            <Link to='/manage'><li className='nav-links' >Manage Profile</li></Link>
+            {
+           user&&<Link to={`/manage/${user._id}`}><li className='nav-links' >Manage Profile</li></Link>
+          }
             </ul>
             <div className='flex btn-grp'>
            

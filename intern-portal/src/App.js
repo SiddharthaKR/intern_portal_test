@@ -54,7 +54,7 @@ console.log("---",user);
       <Route  path="/company/:id" element={<Comp />} />
       <Route path="/profile" element={ <StudentProfile/>} />
       <Route path='/studentedit' element={< StudentEdit />} />
-      <Route exact path='/manage' element={<ManageJobs/>} />
+      <Route exact path='/manage/:userid' element={<ManageJobs/>} />
       <Route exact path='/jobs' element={<SearchPage/>} />
     </Routes> 
     </div>

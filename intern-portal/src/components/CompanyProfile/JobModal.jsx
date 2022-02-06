@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import { useEffect,useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
+import AddIcon from '@mui/icons-material/Add';
 
 
 
@@ -41,7 +42,7 @@ function Alert(props) {
 
 
 
-const JobModal = ({company}) => {
+const JobModal = ({company,child}) => {
  
 
 
@@ -65,7 +66,7 @@ const [open, setOpen] = useState(false);
   const[text,setText]=useState({company:'',
   profile:'',
   duration:'',
-  whocanaply:'',
+  whocanapply:'',
   aboutjob:'',
   noofopening:'',
   perks:'',
@@ -88,7 +89,7 @@ const newJob={
   company:text.company,
   profile:text.profile,
   duration:text.duration,
-  whocanapply:text.whocanaply,
+  whocanapply:text.whocanapply,
   aboutjob:text.aboutjob,
   noofopening:text.noofopening,
   perks:text.perks,
@@ -107,7 +108,10 @@ console.log(err);
 
   return (
     <div>
-    <Button variant='outlined' onClick={() => setOpen(true)}>Post Job</Button>
+       <Button  variant="outlined" color="#03a9f4" onClick={() => setOpen(true)} sx={{backgroundColor:'#3acbf7', marginRight:'10px',marginBottom:'20px'}}>
+                        {child}
+                    </Button>
+    
 <Modal style={{overflow:'scroll'}} open={open}>
     <Container className={classes.container}>
       <form action="/jobs" method="POST"  style={{marginTop:'0.5rem'}}  className={classes.form} autoComplete="on">
@@ -146,7 +150,7 @@ console.log(err);
         </div>  <div className={classes.item}>
           <TextField
           name="whocanapply"
-          value={text.whocanaply}
+          value={text.whocanapply}
           onChange={handleInput}
             id="standard-basic"
             label="Who Can Apply"

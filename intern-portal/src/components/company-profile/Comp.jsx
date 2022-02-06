@@ -15,8 +15,8 @@ const location=useLocation();
 const path=location.pathname.split('/')[2];
 
 
-const[userjobs,setUserJobs]=useState([]);
-const [company,setCompany]= useState({})
+// const[userjobs,setUserJobs]=useState([]);
+const [company,setCompany]= useContext(CompanyContext)
 const [updateMode,setupdateMode]=useState(false)
 
 console.log(company._id)
@@ -29,13 +29,13 @@ useEffect(()=>{
 getCompany()
 },[path])
 
-useEffect(()=>{
-const getCompJobs=async()=>{
-const res=await axios.get(`/jobs/find/${company._id}`)
-setUserJobs(res.data)
-}
-getCompJobs()  
-},[company])
+// useEffect(()=>{
+// const getCompJobs=async()=>{
+// const res=await axios.get(`/jobs/find/${company._id}`)
+// setUserJobs(res.data)
+// }
+// getCompJobs()  
+// },[company])
 
 
   return (
@@ -43,15 +43,15 @@ getCompJobs()
     
       <CustomComponent setv={setupdateMode} company={company} />
       {
-       !updateMode&&company&&(<>
+       !updateMode&&(<>
         <About company={company}/>
           <OtherDetails company={company}/>
           {/* <JobPosted userjobs={userjobs} company={company}/> */}
-          {userjobs.map(job=>(
+          {/* {userjobs.map(job=>(
           
           <TestjobCard job={job}/>
          
-        ))}
+        ))} */}
           </>)
       }
       

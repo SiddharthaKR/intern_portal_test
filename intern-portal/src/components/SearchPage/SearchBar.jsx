@@ -13,13 +13,15 @@ export default function SearchBar() {
 
   return (
     <Autocomplete
+    className='search-bar'
       id="grouped-demo"
       options={options.sort((a, b) => -b.stackType.localeCompare(a.stackType))}
       groupBy={(option) => option.stackType}
       getOptionLabel={(option) => option.title}
       sx={{ width: 'flex' }}
-      renderInput={(params) => <TextField {...params} />}
+      renderInput={(params) => <TextField  className='border-none' {...params} label="Search Jobs"/>}
     />
+   
   );
 }
 
