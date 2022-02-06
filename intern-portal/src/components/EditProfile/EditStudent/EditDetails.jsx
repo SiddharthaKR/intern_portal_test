@@ -5,7 +5,9 @@ import TextField from '@mui/material/TextField';
 import Paper from '@material-ui/core/paper'
 import axios from "axios";
 import { Typography } from '@mui/material';
-
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import logo from '../../images/iitglogo.png'
 const EditDetails = () => {
 
 
@@ -84,44 +86,87 @@ const updateDetails= async(e)=>{
 
 
   return (
-  <form method='post' action="/auth/editstudentdetails"  >
-
- <Grid conainer spacing={3}> 
+  <form method='post' action="/auth/editstudentdetails" >
+ <Grid container
+  direction="column"
+ spacing={5}>
+  <Grid item>
+    <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+      <img src={logo} style={{width:'150px',height:'150px'}} alt="" />
+      <Button variant="contained" onClick={updateDetails} sx={{backgroundColor:'#3acbf7',margin:'0 auto'}}>Change Your Photo</Button>
+   </div> 
+  </Grid>
  <Grid item>
-   <Typography>Name</Typography>
-<TextField name="username" variant="standard" value={studentDetails.username} onChange={handleInput}/>
+   <div style={{display:'flex',flexDirection:'row',alignItems:'center',marginTop:'20px'}}>
+    <Typography sx={{marginRight:'20px',width:'100px'}}>Name</Typography>
+    <TextField name="username" variant="standard" value={studentDetails.username} onChange={handleInput} sx={{width:'80%'}}/>
+   </div> 
 </Grid>
 <Grid item>
-<Typography>Roll no</Typography>
-<TextField name="rollno" variant="standard" value={studentDetails.rollno} onChange={handleInput}  />
+  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+    <Typography sx={{marginRight:'20px',width:'100px'}}>Roll no</Typography>
+    <TextField name="rollno" variant="standard" value={studentDetails.rollno} onChange={handleInput} sx={{width:'80%'}}  />
+  </div> 
 </Grid>
 <Grid item>
-<Typography>Branch</Typography>
-<TextField name="branch" variant="standard" value={studentDetails.branch} onChange={handleInput}  />
+  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+    <Typography sx={{marginRight:'20px',width:'100px'}}>Branch</Typography>
+    <TextField name="branch" variant="standard" value={studentDetails.branch} onChange={handleInput} sx={{width:'80%'}} />
+  </div> 
 </Grid>
 <Grid item>
-<Typography>Year of Graduation</Typography>
-<TextField name="yearofgraduation" variant="standard" value={studentDetails.yearofgraduation} onChange={handleInput} />
+  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+    <Typography sx={{marginRight:'20px',width:'100px'}}>Year of Graduation</Typography>
+    <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={studentDetails.yearofgraduation}
+          label="Year of Graduation"
+          onChange={handleInput}
+          sx={{width:'80%'}}
+        >
+          <MenuItem value={2020}>2020</MenuItem>
+          <MenuItem value={2021}>2021</MenuItem>
+          <MenuItem value={2022}>2022</MenuItem>
+          <MenuItem value={2023}>2021</MenuItem>
+          <MenuItem value={2024}>2024</MenuItem>
+          <MenuItem value={2025}>2025</MenuItem>
+          <MenuItem value={2026}>2026</MenuItem>
+          <MenuItem value={2027}>2027</MenuItem>
+          <MenuItem value={2028}>2028</MenuItem>
+        </Select>
+  </div>
 </Grid>
 <Grid item>
-<Typography>Linked In</Typography>
-<TextField name="linkedin" variant="standard" value={studentDetails.linkedin} onChange={handleInput}  />
+  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+    <Typography sx={{marginRight:'20px',width:'100px'}}>LinkedIn</Typography>
+    <TextField name="linkedin" variant="standard" value={studentDetails.linkedin} onChange={handleInput} sx={{width:'80%'}} />
+  </div>
 </Grid>
 <Grid item>
-<Typography>Email</Typography>
-<TextField name="email" variant="standard" value={studentDetails.email} onChange={handleInput}  />
+  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+    <Typography sx={{marginRight:'20px',width:'100px'}}>Email</Typography>
+    <TextField name="email" variant="standard" value={studentDetails.email} onChange={handleInput} sx={{width:'80%'}} />
+  </div>
 </Grid>
+
 <Grid item>
-<Typography>About</Typography>
-<TextField name="about" variant="outlined" onChange={handleInput} multiline rows={4} />
+  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+    <Typography sx={{marginRight:'20px',width:'100px'}}>About</Typography>
+    <TextField name="about" variant="outlined" onChange={handleInput} multiline rows={4} sx={{width:'80%'}} />
+  </div>
 </Grid>
-<Grid item>
-<input type="submit" onClick={updateDetails} />
+<Grid item sx={{margin:'0 auto'}}>
+<div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+    <Button variant="contained" onClick={updateDetails} sx={{backgroundColor:'#3acbf7', marginTop:'20px'}}>Submit</Button>
+    <Button variant="contained" onClick={updateDetails} sx={{backgroundColor:'#3acbf7', marginTop:'20px'}}>Submit</Button>
+  </div>
+
 </Grid>
 </Grid> 
 
  
-  </form>)
+</form>)
 };
 
 export default EditDetails;
