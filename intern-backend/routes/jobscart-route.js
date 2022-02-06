@@ -63,6 +63,16 @@ res.status(500).json(err);
     }
 });
 
+//GET JOB
+router.get("/:id", async (req, res) => {
+    try {
+      const job = await Job.findById(req.params.id);
+      res.status(200).json(job);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
 
 
 

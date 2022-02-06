@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React,{useContext, useEffect, useState} from "react";
 import "./managejobs.css"
 import cStatIllustraiton from "../images/companyIllustration.png";
 import statisticsIcon from '../images/statisticsIcon.png';
@@ -8,11 +8,13 @@ import JobModal from "../CompanyProfile/JobModal";
 import statsimg from "../images/stats.svg"
 import { Icon } from '@mui/material';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom'; 
+import { useLocation } from 'react-router-dom';
+import {CompanyContext} from '../../context/CompanyContext' 
+
 
 export default function ManageJobs() {
     
-    const[company,setCompany]=useState({});
+    const[company,setCompany]=useContext(CompanyContext);
     const[userjobs,setUserJobs]=useState([]);
 
     const location=useLocation();
@@ -32,6 +34,7 @@ useEffect(()=>{
     const getCompJobs=async()=>{
       const res=await axios.get(`/jobs/find/${company._id}`)
       setUserJobs(res.data)
+      console.log(res.data)
       // console.log(res.data)
     }
     getCompJobs()
@@ -75,8 +78,13 @@ useEffect(()=>{
                     <div style={{display:'flex',justifyContent:'flex-end'}}>
                    <JobModal child="Add opportunity" />
                     </div>
-                    <CompanyJobCard/>
-                    <CompanyJobCard/>
+                    {
+                        userjobs.map((job)=>(
+                            <CompanyJobCard job={job}/>
+                        ))
+                    }
+                    {/* <CompanyJobCard/>
+                    <CompanyJobCard/> */}
                 </div>
             </div>
             </div>

@@ -50,5 +50,15 @@ router.post("/register",async(req,res)=>{
       res.status(500).json(err);
     }
   });
+
+  //GET ALL
+  router.get("/",async(req,res)=>{
+    try{
+        const companies=await Company.find();
+        res.status(200).json(companies);
+    }catch(err){
+res.status(500).json(err);
+    }
+});
   
   module.exports =router;

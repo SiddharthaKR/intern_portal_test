@@ -12,6 +12,7 @@ import CompanyProfile from "./components/CompanyProfile/CompanyProfile";
 import ManageJobs from "./components/ManageJobs/ManageJobs";
 import Comp from "./components/company-profile/Comp";
 import SearchPage from "./components/SearchPage/SearchPage"
+import Test from "./components/Test";
 
 function App() {
 
@@ -56,6 +57,7 @@ console.log("---",user);
       <Route path='/studentedit' element={< StudentEdit />} />
       <Route exact path='/manage/:userid' element={<ManageJobs/>} />
       <Route exact path='/jobs' element={<SearchPage/>} />
+      <Route exact path='/jobs/:jobid' element={<Test/>} />
     </Routes> 
     </div>
       
