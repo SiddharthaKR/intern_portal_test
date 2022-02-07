@@ -10,7 +10,7 @@ import Select from '@mui/material/Select';
 import logo from '../../images/iitglogo.png'
 const EditDetails = () => {
 
-
+//////////////later we will use local storage
   const [studentDetails,setStudentDetails]= useState({});
 
   const getStudetails= async()=>{
@@ -39,7 +39,7 @@ const EditDetails = () => {
 useEffect(()=>{
   getStudetails();
 },[]);
-
+////////////////////////////////////
   
 
 
