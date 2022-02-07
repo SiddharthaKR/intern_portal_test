@@ -8,7 +8,7 @@ import { Typography } from '@mui/material';
 
 const EditDetails = () => {
 
-
+//////////////later we will use local storage
   const [studentDetails,setStudentDetails]= useState({});
 
   const getStudetails= async()=>{
@@ -37,7 +37,7 @@ const EditDetails = () => {
 useEffect(()=>{
   getStudetails();
 },[]);
-
+////////////////////////////////////
   
 
 
