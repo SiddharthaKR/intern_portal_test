@@ -14,6 +14,7 @@ import { CompanyContext } from '../../context/CompanyContext';
 import TemporaryPage from './TemporaryPage';
 import img from "../images/temporary.png"
 import './temp.css'
+import sideimg from '../images/sideimg.jpg' 
 
 
 
@@ -116,7 +117,7 @@ const handleCompSubmit=async(e)=>{
       </Link> 
       </Grid>
       <Grid item lg={6}>
-       <img className='temp-img' src={img}></img>
+       <img className='temp-img' src={sideimg}></img>
       </Grid>
     
   </Grid>;

@@ -14,6 +14,8 @@ import Comp from "./components/company-profile/Comp";
 import SearchPage from "./components/SearchPage/SearchPage"
 import Test from "./components/Test";
 import ViewResponses from "./components/ManageJobs/ViewResonses";
+import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
+
 function App() {
 
   const [user,setUser]= useState(null)
@@ -59,6 +61,7 @@ console.log("---",user);
       <Route exact path='/jobs' element={<SearchPage/>} />
       <Route exact path='/jobs/:jobid' element={<Test/>} />
       <Route exact path='/viewresponses' element={<ViewResponses/>}/>
+      <Route exact path='/jobs/:jobid' element={<OpportunityDetails/>} />
     </Routes> 
     </div>
       
