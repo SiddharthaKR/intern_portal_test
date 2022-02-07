@@ -13,7 +13,7 @@ import ManageJobs from "./components/ManageJobs/ManageJobs";
 import Comp from "./components/company-profile/Comp";
 import SearchPage from "./components/SearchPage/SearchPage"
 import Test from "./components/Test";
-
+import ViewResponses from "./components/ManageJobs/ViewResonses";
 function App() {
 
   const [user,setUser]= useState(null)
@@ -58,6 +58,7 @@ console.log("---",user);
       <Route exact path='/manage/:userid' element={<ManageJobs/>} />
       <Route exact path='/jobs' element={<SearchPage/>} />
       <Route exact path='/jobs/:jobid' element={<Test/>} />
+      <Route exact path='/viewresponses' element={<ViewResponses/>}/>
     </Routes> 
     </div>
       
