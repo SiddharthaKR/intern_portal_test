@@ -8,7 +8,7 @@ import { FaWindows } from 'react-icons/fa'
 
 const ResNavbar = ({user}) => {
  const [clicked , setClicked]= useState(false);
-
+ 
  function handleClick(){
      setClicked(!clicked);
  }
@@ -28,17 +28,18 @@ const ResNavbar = ({user}) => {
             <ul className={clicked? 'nav-menu active':'nav-menu' }>
             <Link to='/'><li className='nav-links' >Home</li></Link>
             <Link to='/jobs'><li className='nav-links' >Jobs</li></Link>
-            {
-           user&&<Link to={`/manage/${user._id}`}><li className='nav-links' >Manage Profile</li></Link>
+            {          
+           user?.googleId&&<Link to={`/manage/${user._id}`}><li className='nav-links' >Manage Profile</li></Link>
+          }
+          {
+              user?.outlookId&&<Link to={`/student/manage/${user._id}`}><li className='nav-links' >Manage Profile</li></Link>
           }
             </ul>
             <div className='flex btn-grp'>
            
                 {user?(
                     <div className='nav-btn flex'>
-                    <Link className='nav-btn'style={{marginRight:'4px'}} to="studentedit">
-                        <Button >Edit Profile</Button>
-                    </Link >
+                   
                      <Button  className='nav-btn' onClick={logout}>Log Out</Button>
                     </div>):
                     (

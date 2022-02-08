@@ -4,7 +4,7 @@ const CompUserSchema = new mongoose.Schema(
     {
       username: {type:String, },
       email:{type:String,unique:true},
-      googleid:{type:String}, 
+      googleId:{type:String}, 
     },
     { timestamps: true }
   );

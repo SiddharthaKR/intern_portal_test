@@ -7,6 +7,47 @@ const CompUser=require("../models/CompUser");
 const jwt= require('jsonwebtoken')
  
 
+function SessionConstructor(userId, userGroup, details) {
+  this.userId = userId;
+  this.userGroup = userGroup;
+  this.details = details;
+}
+passport.serializeUser(function (userObject, done) {
+  // userObject could be a Model1 or a Model2... or Model3, Model4, etc.
+  let userGroup = "model1";
+  let userPrototype =  Object.getPrototypeOf(userObject);
+
+  if (userPrototype === CompUser.prototype) {
+    userGroup = "compmodel";
+  } else if (userPrototype === StudentUser.prototype) {
+    userGroup = "studentmodel";
+  }
+
+  let sessionConstructor = new SessionConstructor(userObject.id, userGroup, '');
+  done(null,sessionConstructor);
+});
+
+passport.deserializeUser(function (sessionConstructor, done) {
+
+  if (sessionConstructor.userGroup == 'compmodel') {
+    CompUser.findOne({
+        _id: sessionConstructor.userId
+    }, function (err, user) { // When using string syntax, prefixing a path with - will flag that path as excluded.
+        done(err, user);
+    });
+  } else if (sessionConstructor.userGroup == 'studentmodel') {
+    StudentUser.findOne({
+        _id: sessionConstructor.userId
+    }, function (err, user) { // When using string syntax, prefixing a path with - will flag that path as excluded.
+        done(err, user);
+    });
+  }
+
+});
+
+
+
+
 
 passport.use(
   new GoogleStrategy(
@@ -15,14 +56,14 @@ passport.use(
       clientSecret: keys.google.clientSecret,
       callbackURL: "/auth/google/callback",
     },
-    function (accessToken, refreshToken, profile, complete) {
+    function (accessToken, refreshToken, profile, done) {
       
       CompUser.findOne({googleid:profile.id}).then(
         (currentUser)=>{
           if(currentUser){
             console.log('user is '+currentUser);
             //serializing the user
-            complete(null, currentUser);
+            done(null, currentUser);
           }
           else{
             new CompUser({
@@ -31,7 +72,7 @@ passport.use(
               googleid:profile.id,   
             }).save().then((newUser)=>{
               console.log("hiiiiiiii new Companyuser"+newUser);
-              complete(null, newUser);
+              done(null, newUser);
             });
           }
         }
@@ -40,14 +81,44 @@ passport.use(
   )
 );
 
-passport.serializeUser((user,complete)=>{
-  complete(null,user.id);
-});
-passport.deserializeUser((id,complete)=>{   
-  CompUser.findById(id).then((user) => {
-    complete(null, user);
-});
-});
+// passport.serializeUser((user,done)=>{
+//  done(null,user.id);
+// });
+// passport.deserializeUser((id,done)=>{   
+//   CompUser.findById(id).then((user) => {
+//     done(null, user);
+// });
+// });
+
+
+
+// passport.serializeUser((user,done)=>{
+//   done(null,user.id);
+// });
+
+// passport.deserializeUser((id,done)=>{   
+//   StudentUser.findById(id).then((user) => {
+//     done(null, user);
+// });
+// });
+
+// passport.serializeUser((user,complete)=>{
+//   var key={
+//     id:user.id,
+//     type: user.userType
+//   }
+//   complete(null,key)
+// })
+
+// passport.deserializeUser((key,complete)=>{
+//   const Model=key.type===StudentUser?StudentUser:CompUser;
+//   Model.findOne({
+//     _id:key.id
+//   }).then((user)=>{
+//     complete(null,user)
+//   })
+// })
+
 
 
 
@@ -99,13 +170,5 @@ done(null, currentUser);
 ));
 
 
-passport.serializeUser((user,done)=>{
-  done(null,user.id);
-});
 
-passport.deserializeUser((id,done)=>{   
-  StudentUser.findById(id).then((user) => {
-    done(null, user);
-});
-});
 

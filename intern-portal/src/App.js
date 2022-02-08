@@ -15,6 +15,7 @@ import SearchPage from "./components/SearchPage/SearchPage"
 import Test from "./components/Test";
 import ViewResponses from "./components/ManageJobs/ViewResonses";
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
+import ManageStudent from "./components/ManageStudent/ManageStudent";
 
 function App() {
 
@@ -36,7 +37,7 @@ useEffect(()=>{
       throw new Error("authentication failed")
     }).then(resObject=>{
        setUser(resObject.user)
-       console.log("love youuuuuu"+resObject.user)
+       console.log(resObject.user)
     }).catch((err) => {
       console.log(err);
     }); 
@@ -59,9 +60,9 @@ console.log("---",user);
       <Route path='/studentedit' element={< StudentEdit />} />
       <Route exact path='/manage/:userid' element={<ManageJobs/>} />
       <Route exact path='/jobs' element={<SearchPage/>} />
-      <Route exact path='/jobs/:jobid' element={<Test/>} />
       <Route exact path='/viewresponses' element={<ViewResponses/>}/>
       <Route exact path='/jobs/:jobid' element={<OpportunityDetails/>} />
+      <Route exact path='/student/manage/:userid' element={<ManageStudent/>} />
     </Routes> 
     </div>
       
