@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
+import Button from '../../Responsive/Button';
 import TextField from '@mui/material/TextField';
 import Paper from '@material-ui/core/paper'
 import axios from "axios";
@@ -8,6 +8,8 @@ import { Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import logo from '../../images/iitglogo.png'
+import { useNavigate } from 'react-router-dom';
+
 const EditDetails = () => {
 
 //////////////later we will use local storage
@@ -42,7 +44,7 @@ useEffect(()=>{
 ////////////////////////////////////
   
 
-
+const navigate = useNavigate()
 const handleInput = (e)=>{
     const name= e.target.name;
     const value= e.target.value;
@@ -51,6 +53,7 @@ const handleInput = (e)=>{
 }
 
 const updateDetails= async(e)=>{
+  console.log("clicked")
   e.preventDefault();
  const username= studentDetails.username;
  const rollno=studentDetails.rollno;
@@ -59,7 +62,7 @@ const updateDetails= async(e)=>{
  const linkedin=studentDetails.linkedin;
  const email=studentDetails.email;
 
- const res=await fetch('/auth/editstudentdetails',{
+ const res=await fetch('/auth/student/edit',{
    method: "POST",
    headers:{
      "Content-Type": "application/json"
@@ -78,7 +81,8 @@ const updateDetails= async(e)=>{
  if(!data){
    console.log("not posted");
  }else{
-   alert("data updated");
+   navigate(`/student/${studentDetails._id}`)
+   console.log("updated")
  }
  
 }
@@ -86,7 +90,7 @@ const updateDetails= async(e)=>{
 
 
   return (
-  <form method='post' action="/auth/editstudentdetails" >
+  <form onSubmit={updateDetails}>
  <Grid container
   direction="column"
  spacing={5}>
@@ -158,8 +162,9 @@ const updateDetails= async(e)=>{
 </Grid>
 <Grid item sx={{margin:'0 auto'}}>
 <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
-    <Button variant="contained" onClick={updateDetails} sx={{backgroundColor:'#3acbf7', marginTop:'20px'}}>Submit</Button>
-    <Button variant="contained" onClick={updateDetails} sx={{backgroundColor:'#3acbf7', marginTop:'20px'}}>Submit</Button>
+    <Button type="submit" sx={{backgroundColor:'#3acbf7', marginTop:'20px'}}>Update</Button>
+    
+  
   </div>
 
 </Grid>

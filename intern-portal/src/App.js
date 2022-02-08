@@ -16,6 +16,7 @@ import Test from "./components/Test";
 import ViewResponses from "./components/ManageJobs/ViewResonses";
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
 import ManageStudent from "./components/ManageStudent/ManageStudent";
+import StudentLanding from "./components/student-profile/StudentLanding";
 
 function App() {
 
@@ -56,8 +57,9 @@ console.log("---",user);
       <Route path="/login" element={<Login />}  />
       <Route exact path="/company/register"  element={ <CompLanding/>} />
       <Route  path="/company/:id" element={<Comp />} />
-      <Route path="/profile" element={ <StudentProfile/>} />
-      <Route path='/studentedit' element={< StudentEdit />} />
+      <Route path="/student/:id" element={ <StudentProfile/>} />
+      <Route path='/student/landing' element={< StudentLanding />} />
+      <Route path='/student/edit' element={< StudentEdit />} />
       <Route exact path='/manage/:userid' element={<ManageJobs/>} />
       <Route exact path='/jobs' element={<SearchPage/>} />
       <Route exact path='/viewresponses' element={<ViewResponses/>}/>

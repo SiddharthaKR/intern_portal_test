@@ -50,7 +50,7 @@ router.get('/outlook',
   })
 );
 
-const CLIENT_URL="http://localhost:3000/profile"
+const CLIENT_URL="http://localhost:3000/student/landing"
 
 
 router.get('/outlook/callback', 
@@ -83,7 +83,7 @@ router.get(
   //}
 
  //// Information Update ////
- router.post("/editstudentdetails" , async(req,res)=>{
+ router.post("/student/edit" , async(req,res)=>{
 
   var branch = req.body.branch;
   var phone = req.body.phone;
