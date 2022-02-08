@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./OpportunityDetails.css";
 import { GrLocation } from "react-icons/gr";
 import { BsCalendar2Check } from "react-icons/bs";
@@ -14,6 +14,8 @@ import { useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import { IconButton } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditJobModal from './EditJobModal'
+import { UserJobContext } from "../../context/UserJobsContext";
 
 const OpportunityDetails = () => {
 
@@ -45,7 +47,7 @@ const OpportunityDetails = () => {
  const navigate = useNavigate();
  const location=useLocation();
  const path=location.pathname.split('/')[2];
- const[job,setJob]=useState({});
+ const[job,setJob]=useContext(UserJobContext);
  useEffect(()=>{
      const getJob=async()=>{
          const res=await axios.get('/jobs/'+path);
@@ -72,20 +74,22 @@ const[updatemode,setupdateMode]=useState(false);
       <div className="opportunitypage">
         <div className="detail-border">
         <div className="opportunityheading">
-          <h1>Web Development Internship</h1>
-          <h3>Arcot Group(Arcot Media Pvt Ltd)</h3>
+          <div className="flex " style={{justifyContent:"space-between"}}>
+          <h1>{job.profile}</h1>
           {
-         job.userId==user?._id&&(<div className="flex "><IconButton onClick={()=>{
-          setupdateMode(true) 
-          
-         }}  aria-label="Edit Profile" className="edtbtn">
-         <EditIcon />              
-         </IconButton>
+         job.userId==user?._id&&(<div style={{display:"flex",marginTop:"15px",alignItems:'center'}}>
+             {/* <IconButton  onClick={() => setupdateMode(true)}  aria-label="Edit Profile" className="edtbtn">
+            <EditIcon />
+        </IconButton> */}
+        <EditJobModal />
          <IconButton onClick={handleDelete}>
            <DeleteIcon />
          </IconButton>
          </div>)
        }
+       </div>
+          <h3>{job.company}</h3>
+         
         </div>
         <div className="list flex">
                     <div className="list-1">
@@ -111,7 +115,7 @@ const[updatemode,setupdateMode]=useState(false);
                                   </IconContext.Provider>
                                 </div>
                                 <div className="info-heading">
-                                  <h4>Duration</h4>
+                                  <h4>Duration:</h4>
                                   <p style={{fontSize:'18px'}}>6 Weeks</p>
                                 </div>
                               </div>
@@ -129,7 +133,7 @@ const[updatemode,setupdateMode]=useState(false);
                                 </IconContext.Provider>
                               </div>
                               <div className="info-heading">
-                                <h4>Apply By</h4>
+                                <h4>Apply By:</h4>
                                 <p style={{fontSize:'18px'}}>17th Oct 2021</p>
                               </div>
                             </div>
@@ -142,7 +146,7 @@ const[updatemode,setupdateMode]=useState(false);
                                   </IconContext.Provider>
                                 </div>
                                 <div className="info-heading">
-                                  <h4>Stipend</h4>
+                                  <h4>Stipend:</h4>
                                   <p style={{fontSize:'18px'}}>10 Kalol/per Month</p>
                                 </div>
                               </div>
@@ -159,7 +163,7 @@ const[updatemode,setupdateMode]=useState(false);
                                   </IconContext.Provider>
                                 </div>
                                 <div className="info-heading">
-                                  <h4>Start</h4>
+                                  <h4>Start:</h4>
                                   <p style={{fontSize:'18px'}}>Immediately</p>
                                 </div>
                               </div>

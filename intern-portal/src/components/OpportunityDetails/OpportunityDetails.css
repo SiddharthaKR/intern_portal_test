@@ -21,6 +21,9 @@ ol{
   margin: 3vmax auto;
   /* height: 500vh; */
 }
+.justify-fend{
+  justify-content: end
+}
 
 .opportunityheading > h1 {
   font-size: 3.5vmax;
@@ -52,8 +55,13 @@ ol{
 
 .react-icon {
   font-size: 2vmax;
-  position: relative;
-  top: -1.2vmax;
+}
+.info-heading{
+  display: flex;
+  align-items: center;
+}
+.info-heading p{
+  margin-left: 4px;
 }
 
 .tag2,
@@ -68,7 +76,7 @@ ol{
 
 
 .info-icon {
-  flex-direction: column;
+  display: flex;
 }
 
 .info {
