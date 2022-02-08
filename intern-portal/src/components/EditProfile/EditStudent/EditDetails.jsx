@@ -4,7 +4,7 @@ import Button from '../../Responsive/Button';
 import TextField from '@mui/material/TextField';
 import Paper from '@material-ui/core/paper'
 import axios from "axios";
-import { Typography } from '@mui/material';
+import { Avatar, Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import logo from '../../images/iitglogo.png'
@@ -61,19 +61,41 @@ const updateDetails= async(e)=>{
  const yearofgraduation=studentDetails.yearofgraduation;
  const linkedin=studentDetails.linkedin;
  const email=studentDetails.email;
+//  const newDetail={
+//   userId:companyUser._id,
+//   name:text.name,
+//   about:text.about,
+//   location:text.location,
+//   phone:text.phone,
+//  email:text.email,
+//  website:text.website,
+//  logo:text.logo
+// }
 
- const res=await fetch('/auth/student/edit',{
-   method: "POST",
+//  try{
+//   await axios.post("/company/register",newCompany)     
+//   console.log('Company added')
+//   navigate(`/company/${companyUser._id}`)
+// }catch(err){
+// console.log(err);
+// }
+
+
+
+ const res=await fetch(`/student/${studentDetails._id}`,{
+   method: "PUT",
    headers:{
      "Content-Type": "application/json"
    },
    body: JSON.stringify({
+     userId:studentDetails._id,
      username: username,
+     email:email,
      rollno:rollno,
      branch:branch,
-     yearofgraduation:yearofgraduation,
+     graduation:yearofgraduation,
      linkedin:linkedin,
-     email:email
+     
    })
  });
 
@@ -95,8 +117,8 @@ const updateDetails= async(e)=>{
   direction="column"
  spacing={5}>
   <Grid item>
-    <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
-      <img src={logo} style={{width:'150px',height:'150px'}} alt="" />
+    <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around"}}>
+      <Avatar src={logo}  sx={{ width: 56, height: 56 }}/>
       <Button variant="contained" onClick={updateDetails} sx={{backgroundColor:'#3acbf7',margin:'0 auto'}}>Change Your Photo</Button>
    </div> 
   </Grid>
@@ -124,7 +146,7 @@ const updateDetails= async(e)=>{
     <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={studentDetails.yearofgraduation}
+          value={studentDetails.graduation}
           label="Year of Graduation"
           onChange={handleInput}
           sx={{width:'80%'}}

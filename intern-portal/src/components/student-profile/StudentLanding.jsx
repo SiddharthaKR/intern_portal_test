@@ -44,16 +44,16 @@ getStudentUserdetails();
      Find Right Internship For You
  </Typography>
  {
-   user?.rollno&&( <Link className='my-3' to={`/student/${user._id}`}>
+   user?.rollno?( <Link className='my-3' to={`/student/${user._id}`}>
    <Button variant='outlined'>View Profile
    </Button>
-   </Link>)
- }
-
-  <Link className='my-3' to={`/student/edit`}>
+   </Link>):( <Link className='my-3' to={`/student/edit`}>
   <Button variant='outlined'>Update Profile
   </Button>
-  </Link>  
+  </Link> )
+ }
+
+  
   </Grid>
   <Grid item lg={6}>
    <img className='temp-img' src={sideimg}></img>

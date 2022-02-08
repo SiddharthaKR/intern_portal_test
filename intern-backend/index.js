@@ -12,7 +12,7 @@ require('dotenv/config');
 const cookieParser = require('cookie-parser');
 const jobsRoute=require('./routes/jobscart-route');
 const companyRoute=require('./routes/comp-route');
-
+const studentRoute=require('./routes/student-route');
 
 //middleware
 app.use(express.json());
@@ -44,6 +44,7 @@ app.use(cors({
     credentials: true,
 }))
 
+app.use("/student",studentRoute)
 app.use("/auth",authRoute);
 app.use("/jobs",jobsRoute);
 app.use('/company',companyRoute);
