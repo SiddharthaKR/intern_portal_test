@@ -13,6 +13,7 @@ import ManageJobs from "./components/ManageJobs/ManageJobs";
 import Comp from "./components/company-profile/Comp";
 import SearchPage from "./components/SearchPage/SearchPage"
 import Test from "./components/Test";
+import ViewResponses from "./components/ManageJobs/ViewResonses";
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
 
 function App() {
@@ -58,6 +59,8 @@ console.log("---",user);
       <Route path='/studentedit' element={< StudentEdit />} />
       <Route exact path='/manage/:userid' element={<ManageJobs/>} />
       <Route exact path='/jobs' element={<SearchPage/>} />
+      <Route exact path='/jobs/:jobid' element={<Test/>} />
+      <Route exact path='/viewresponses' element={<ViewResponses/>}/>
       <Route exact path='/jobs/:jobid' element={<OpportunityDetails/>} />
     </Routes> 
     </div>

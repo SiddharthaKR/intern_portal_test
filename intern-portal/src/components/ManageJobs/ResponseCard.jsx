@@ -11,8 +11,9 @@ import Button from "../Responsive/Button";
 import Typography from "@mui/material/Typography";
 // import Button from '@mui/material/Button';
 import logo from "../images/iitglogo.png";
-
-const CompanyJobCard = ({ alljob, job }) => {
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import CheckIcon from '@mui/icons-material/Check';
+const ResponseCard = ({ alljob, job }) => {
   const theme = useTheme();
 
   return (
@@ -21,7 +22,6 @@ const CompanyJobCard = ({ alljob, job }) => {
         display: "flex",
         width: "100%",
         marginTop: "10px",
-        marginBottom: "2rem",
         boxShadow: "rgba(0, 0, 0, 0.18) 0px 2px 4px;",
       }}
     >
@@ -41,79 +41,43 @@ const CompanyJobCard = ({ alljob, job }) => {
       >
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent sx={{ flex: "1 0 auto" }}>
-            {alljob && (
               <Typography component="div" variant="h5">
-                {alljob.profile}
+                Comder Sharma
               </Typography>
-            )}
-            {job && (
-              <Typography component="div" variant="h5">
-                {job.profile}
-              </Typography>
-            )}
-
             <Typography
               variant="subtitle1"
               color="text.secondary"
               component="div"
             >
-              Full Time
+              3rd Year
             </Typography>
             <Typography
               variant="subtitle1"
               color="text.secondary"
               component="div"
             >
-              Company: Stonks Fintech
+              B.Tech, Computer Science
             </Typography>
           </CardContent>
         </Box>
         <CardActions>
-          {job && (
-            <Link to={`/jobs/${job._id}`} className="mr-4">
-              <Button
-                variant="contained"
-                sx={{ backgroundColor: "#3acbf7", marginRight: "10px" }}
-              >
-                View Post
-              </Button>
-            </Link>
-          )}
-          {alljob ? (
             <>
-              <Link to={`/jobs/${alljob._id}`} className="mr-4">
                 <Button
                   variant="contained"
                   sx={{ backgroundColor: "#3acbf7", marginRight: "10px" }}
                 >
-                  View Post
+                  View Profile
                 </Button>
-              </Link>
-              <Link to={`/company/${alljob.userId}`} className="mr-4">
-                <Button
-                  variant="contained"
-                  sx={{ backgroundColor: "#3acbf7", marginRight: "10px" }}
-                >
-                  Company Details
-                </Button>
-              </Link>
+                <IconButton aria-label="select" sx={{color:'#9EFD38', marginRight: "10px"}}>
+                  <CheckIcon sx={{width:'30px',height:'30px'}}/>
+                </IconButton>
+                <IconButton aria-label="reject" sx={{color:'#FF0000', marginRight: "10px"}}>
+                  <CancelOutlinedIcon sx={{width:'30px',height:'30px'}}/>
+                </IconButton>
             </>
-          ) : (
-            <Button
-              sx={{
-                backgroundColor: "#3acbf7",
-                marginRight: "10px",
-                marginLeft: "4px",
-              }}
-            >
-              {" "}
-              View Responses
-            </Button>
-          )}
         </CardActions>
       </Box>
     </Card>
   );
 };
-
-export default CompanyJobCard;
+export default ResponseCard;
