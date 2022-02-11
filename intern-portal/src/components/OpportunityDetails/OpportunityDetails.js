@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
+import Button from "../Responsive/Button"
 import { useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import { IconButton } from "@mui/material";
@@ -67,8 +68,26 @@ const OpportunityDetails = () => {
      console.log(err)
    }
  }
+console.log(user)
+const[applied,setApplied]=useState(false);
+useEffect(()=>{
+  setApplied(user.jobsApplied?.includes(job?._id))
+},[user,job._id]);
 
-const[updatemode,setupdateMode]=useState(false);
+const applyHandler=()=>{
+  try{
+    if(applied){
+      axios.put("/jobs/"+job._id+"/undo",{userId:user._id});
+    }
+    else{
+      axios.put("/jobs/"+job._id+"/apply",{userId:user._id});
+    }
+  }catch(err){
+    console.log(err)
+  }
+  setApplied(true)
+}
+
   return (
     <>
       <div className="opportunitypage">
@@ -87,6 +106,7 @@ const[updatemode,setupdateMode]=useState(false);
          </IconButton>
          </div>)
        }
+      
        </div>
           <h3>{job.company}</h3>
          
@@ -219,6 +239,13 @@ const[updatemode,setupdateMode]=useState(false);
             <h4>React Native</h4>
             <h4>MongoDB</h4>
           </div>
+          <div className="flex center_ele" style={{margin:"1rem"}}>
+          {
+         job.userId!=user?._id&&(<Button onClick={applyHandler}>{
+          applied?
+          "Undo Apply":"Apply Now"}</Button>)
+       }
+       </div>
         </div>
       </div>
     </>

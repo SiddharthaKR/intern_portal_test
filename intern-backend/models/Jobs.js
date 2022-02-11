@@ -10,7 +10,11 @@ const JobSchema = new mongoose.Schema(
       aboutjob:{type:String},
       noofopening:{type:Number},
       perks:{type:String},
-      phone:{type:String}
+      phone:{type:String},
+      applicants:{
+        type: Array,
+        default: []
+      }
     },
     { timestamps: true }
   );

@@ -1,4 +1,5 @@
 const StudentUser= require("../models/StudentUser");
+const Job=require("../models/Jobs")
 const router = require("express").Router();
 
 //update user
@@ -18,6 +19,8 @@ router.put("/:id", async (req, res) => {
       return res.status(403).json("You can update only your account!");
     }
   });
+
+
 
 
 

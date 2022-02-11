@@ -35,6 +35,10 @@ const StudentUserSchema = new mongoose.Schema(
     skills:{type: String,default:'',required:false},
     linkedin:{type: String,default:'',required:false},
     phone:{type: Number,default:'',required:false},
+    jobsApplied:{
+      type:Array,
+      default:[]
+    }
 
 },
   { timestamps: true }

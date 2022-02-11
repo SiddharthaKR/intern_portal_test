@@ -103,7 +103,9 @@ const newJob={
 try{
 await axios.post("/jobs",newJob);
 console.log("JOB POSTED");
-window.location.reload();
+setOpenAlert(true)
+setOpen(false)
+
 console.log(newJob)
 }catch(err){
 console.log(err);
@@ -118,7 +120,7 @@ console.log(err);
     
 <Modal style={{overflow:'scroll'}} open={open}>
     <Container className={classes.container}>
-      <form action="/jobs" method="POST"  style={{marginTop:'0.5rem'}}  className={classes.form} autoComplete="on">
+      <form onSubmit={submitHandler}   style={{marginTop:'0.5rem'}}  className={classes.form} autoComplete="on">
         <div className={classes.item}>
           <TextField
           name='company'
@@ -211,14 +213,10 @@ console.log(err);
         </div>
         <div className={classes.item}>
           <Button
-          type="submit"
             variant="outlined"
             color="primary"
             style={{ marginRight: 20 }}
-            onClick={()=>{setOpenAlert(true)
-              setOpen(false)
-              submitHandler()
-            }}
+            type="submit"
           >
             Post Job
           </Button>
