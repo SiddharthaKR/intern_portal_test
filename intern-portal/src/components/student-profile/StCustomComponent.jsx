@@ -6,9 +6,44 @@ import Button from "../Responsive/Button";
 import { Link } from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
 import { Avatar, IconButton } from '@mui/material';
+import { useState,useEffect } from "react";
 
 
 const StCustomComponent = ({student}) => {
+// console.log(user )
+//////later we will use local storage
+// const [user,setUser]=useState({});
+// const getdetails= async()=>{
+//   try{
+//       const res= await fetch('/auth/getuser',{
+//           method: "GET",
+//           headers:{
+             
+//               "Content-Type": "application"
+//           },
+//       });
+//       const data = await res.json();
+//       setUser(data);
+  
+//       if(!res.status ===200){
+//       const error= new Error(res.error);
+//       throw error;
+//       }
+//   } catch(err){
+//       console.log(err)
+//   }
+// }
+
+
+// useEffect(()=>{
+// getdetails();
+
+// },[]);
+/////
+
+
+
+
   console.log(student);
   return (<div>
      <div className="st-custom-component">
@@ -22,15 +57,18 @@ const StCustomComponent = ({student}) => {
                 <div className="st-tertiary-container-1" style={{color: "black"}}>
                   <div className="flex " style={{justifyContent:"space-between"}}>
                   <p>{student.username}</p>
-                  <Link to="/student/edit">
-         <IconButton  aria-label="Edit Profile" className="edtbtn">
-         <EditIcon />              
-         </IconButton>
-         </Link>
+                  
+                   <Link to="/student/edit">
+                    <IconButton  aria-label="Edit Profile" className="edtbtn">
+                    <EditIcon />              
+                    </IconButton>
+                    </Link>
+                  
+                  
          </div>
                   <p style={{fontSize: "medium", color: "black"}}>Student at IIT Guwahati | Mechanical Engineering | ML Enthusiast</p>
                   <div style={{display:"flex", flexDirection:"row"}}>
-                    <Button >View Resume</Button>
+                    <Button>View Resume</Button>
                     <Button>View LinkedIn</Button>
                   </div>
                 </div>

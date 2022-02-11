@@ -99,6 +99,7 @@ const CompanyJobCard = ({ alljob, job }) => {
               </Link>
             </>
           ) : (
+            <Link to={`/manage/${job._id}/response`}>
             <Button
               sx={{
                 backgroundColor: "#3acbf7",
@@ -106,9 +107,10 @@ const CompanyJobCard = ({ alljob, job }) => {
                 marginLeft: "4px",
               }}
             >
-              {" "}
+              
               View Responses
             </Button>
+            </Link>
           )}
         </CardActions>
       </Box>

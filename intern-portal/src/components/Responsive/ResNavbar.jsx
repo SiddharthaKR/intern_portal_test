@@ -26,7 +26,13 @@ const ResNavbar = ({user}) => {
   <i className={clicked?"fas fa-times": 'fas fa-bars'}></i>
             </div>
             <ul className={clicked? 'nav-menu active':'nav-menu' }>
-            <Link to='/'><li className='nav-links' >Home</li></Link>
+            {          
+           user?.googleId&&<Link to={`/company/${user._id}`}><li className='nav-links' >Profile</li></Link>
+          }
+           {
+              user?.outlookId&&<Link to={`/student/${user._id}`}><li className='nav-links' >Profile</li></Link>
+          }
+            {/* <Link to='/'><li className='nav-links' >Home</li></Link> */}
             <Link to='/jobs'><li className='nav-links' >Jobs</li></Link>
             {          
            user?.googleId&&<Link to={`/manage/${user._id}`}><li className='nav-links' >Manage Profile</li></Link>

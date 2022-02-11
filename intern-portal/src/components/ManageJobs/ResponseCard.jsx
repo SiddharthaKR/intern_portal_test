@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import logo from "../images/iitglogo.png";
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import CheckIcon from '@mui/icons-material/Check';
-const ResponseCard = ({ alljob, job }) => {
+const ResponseCard = ({ applicant}) => {
   const theme = useTheme();
 
   return (
@@ -42,7 +42,7 @@ const ResponseCard = ({ alljob, job }) => {
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent sx={{ flex: "1 0 auto" }}>
               <Typography component="div" variant="h5">
-                Comder Sharma
+                {applicant.username}
               </Typography>
             <Typography
               variant="subtitle1"
@@ -61,13 +61,14 @@ const ResponseCard = ({ alljob, job }) => {
           </CardContent>
         </Box>
         <CardActions>
-            <>
+            <> <Link to={`/student/${applicant._id}`}>
                 <Button
                   variant="contained"
                   sx={{ backgroundColor: "#3acbf7", marginRight: "10px" }}
                 >
                   View Profile
                 </Button>
+                </Link>
                 <IconButton aria-label="select" sx={{color:'#9EFD38', marginRight: "10px"}}>
                   <CheckIcon sx={{width:'30px',height:'30px'}}/>
                 </IconButton>
