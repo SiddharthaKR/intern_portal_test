@@ -58,7 +58,7 @@ passport.use(
     },
     function (accessToken, refreshToken, profile, done) {
       
-      CompUser.findOne({googleid:profile.id}).then(
+      CompUser.findOne({googleId:profile.id}).then(
         (currentUser)=>{
           if(currentUser){
             console.log('user is '+currentUser);
@@ -69,7 +69,7 @@ passport.use(
             new CompUser({
               username: profile._json.name,
               email: profile._json.picture,
-              googleid:profile.id,   
+              googleId:profile.id,   
             }).save().then((newUser)=>{
               console.log("hiiiiiiii new Companyuser"+newUser);
               done(null, newUser);
