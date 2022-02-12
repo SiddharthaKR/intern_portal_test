@@ -23,6 +23,8 @@ const CompLanding = () => {
   const[text,setText]=useState({name:'',
   about:'',
   location:'',
+  domain:'',
+  yearOfFoundation:'',
   phone:'',
   email:'',
   website:'',
@@ -84,6 +86,8 @@ const handleCompSubmit=async(e)=>{
         name:text.name,
         about:text.about,
         location:text.location,
+        domain:text.domain,
+        yearOfFoundation:text.yearofFoundation,
         phone:text.phone,
        email:text.email,
        website:text.website,
@@ -127,86 +131,76 @@ const handleCompSubmit=async(e)=>{
       sx={{ mt: 2, paddingX: 45 }}
       onSubmit={handleCompSubmit}
     >
-      <Grid className="box-shadow form-pad" paddingX={6} container spacing={3}>
-        <Grid item lg={12} alignItems="center">
-           
-          <Typography variant="h4">Register Your Company</Typography>
-          
-          
+      <Grid item lg={12} alignItems="center"> 
+         <Typography variant="h4">Register Your Company</Typography>
+       </Grid>
+      <Grid container
+        direction="column"
+        spacing={3}>
+        <Grid item>
+          <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around"}}>
+            <Avatar src={logo}  sx={{ width: 56, height: 56 }}/>
+            <Button variant="contained" sx={{backgroundColor:'#3acbf7',margin:'0 auto'}}>Change Your Photo</Button>
+        </div> 
         </Grid>
-
-        <Grid item xs={12} className="flex form-inp">
-          <Avatar alt="Remy Sharp" src={logo} />
-          <Button>Upload your logo</Button>
-        </Grid>
-        <Grid item className="flex form-inp" xs={12}>
-          <label htmlFor="">Name</label>
-          <TextField
-            value={text.name}
-            name="name"
-            onChange={handleInput}
-            fullWidth
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">Phone</label>
-          <TextField
-            value={text.phone}
-            name="phone"
-            onChange={handleInput}
-            fullWidth
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">Location</label>
-          <TextField
-            value={text.location}
-            name="location"
-            onChange={handleInput}
-            fullWidth
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">Email Id</label>
-          <TextField
-            value={text.email}
-            name="email"
-            onChange={handleInput}
-            fullWidth
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">Linked In Id</label>
-          <TextField
-            value={text.linkedin}
-            name="linkedin"
-            onChange={handleInput}
-            fullWidth
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">Website</label>
-          <TextField
-            value={text.website}
-            name="website"
-            onChange={handleInput}
-            fullWidth
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">About</label>
-          <TextField
-            value={text.about}
-            name="about"
-            onChange={handleInput}
-            multiline
-            fullWidth
-            maxRows={4}
-          />
-        </Grid>
-        <Button type="submit" variant="outlined">Register</Button>
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',marginTop:'20px',justifyContent:"space-around",width:'80%'}} >
+          <Typography sx={{marginRight:'20px',width:'100px'}}>Name</Typography>
+          <TextField name="name" variant="standard" value={text.name} autoFocus={true} onChange={handleInput} sx={{width:'80%'}} />
+        </div> 
       </Grid>
-    </Box>)
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
+          <Typography sx={{marginRight:'20px',width:'100px'}}>Phone Number</Typography>
+          <TextField name="phone" variant="standard" value={text.phone} onChange={handleInput} sx={{width:'80%'}}  />
+        </div> 
+      </Grid>
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
+          <Typography sx={{marginRight:'20px',width:'100px'}}>Location</Typography>
+          <TextField name="location" variant="standard" value={text.location} onChange={handleInput} sx={{width:'80%'}} />
+        </div> 
+      </Grid>
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
+          <Typography sx={{marginRight:'20px',width:'100px'}}>Domain</Typography>
+          <TextField name="location" variant="standard" value={text.domain} onChange={handleInput} sx={{width:'80%'}} />
+        </div> 
+      </Grid>
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
+          <Typography sx={{marginRight:'20px',width:'100px'}}>Year of Foundation</Typography>
+          <TextField name="location" variant="standard" value={text.yearOfFoundation} onChange={handleInput} sx={{width:'80%'}} />
+        </div> 
+      </Grid>
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
+          <Typography sx={{marginRight:'20px',width:'100px'}}>Email Id</Typography>
+          <TextField name="email" variant="standard" value={text.email} onChange={handleInput} sx={{width:'80%'}} />
+        </div>
+      </Grid>
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
+          <Typography sx={{marginRight:'20px',width:'100px'}}>LinkedIn Id</Typography>
+          <TextField name="linkedin" variant="standard" value={text.linkedin} onChange={handleInput} sx={{width:'80%'}} />
+        </div>
+      </Grid>
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
+          <Typography sx={{marginRight:'20px',width:'100px'}}>Website</Typography>
+          <TextField name="website" variant="standard" value={text.website} onChange={handleInput} sx={{width:'80%'}} />
+        </div>
+      </Grid>
+
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
+          <Typography sx={{marginRight:'20px',width:'100px'}}>About</Typography>
+          <TextField name="about" variant="outlined" value={text.about} onChange={handleInput} multiline Rows={8} sx={{width:'80%'}} />
+        </div>
+      </Grid>
+      <Button type="submit" variant="outlined">Register</Button>
+      </Grid>
+      </Box>)
 }
          </Container>
          </>

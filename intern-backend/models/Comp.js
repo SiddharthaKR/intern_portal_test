@@ -6,6 +6,8 @@ const CompanySchema = new mongoose.Schema(
         name:{type:String},
         about:{type:String},
         location:{type: String},
+        domain:{type: String},
+        yearOfFoundation:{type: String},
         phone:{type:String},
         email:{type:String},
         website:{type:String},

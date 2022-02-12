@@ -6,8 +6,7 @@ import location_icon from '../images/location_icon.png';
 import phone_icon from '../images/phoneicon.png';
 import internet_icon from '../images/interneticon.png';
 import year_of_graduation_icon from '../images/year_of_graduation_icon.png';
-class OtherDetails extends React.Component{
-    render(){
+const OtherDetails = ({ company }) => {
         return(
             <div className="profile-pad">
             <div className="other-details">
@@ -17,15 +16,15 @@ class OtherDetails extends React.Component{
                         <ul>
                             <li>
                                 <div className="mini-icon"><img src={location_icon} alt="" /></div>
-                                <p>Location: Lucknow</p>
+                                <p>Location: {company.location}</p>
                             </li>
                             <li>
                                 <div className="mini-icon" ><img src={internet_icon} style={{width:'30px',height:'30px'}} alt="" /></div>
-                                <p>Domain: Fintech</p>
+                                <p>Domain: {company.domain}</p>
                             </li>
                             <li>
                                 <div className="mini-icon"><img src={year_of_graduation_icon} alt="" /></div>
-                                <p>Year of Foundation: 2024 (Online)</p>
+                                <p>Year of Foundation: {company.yearOfFoundation}</p>
                             </li>
                         </ul>
                     </div>
@@ -33,11 +32,11 @@ class OtherDetails extends React.Component{
                         <ul>
                             <li>
                                 <div className="mini-icon"><img src={email_icon} alt="" /></div>
-                                <p>Email ID: hellonaman@iitg.ac.in</p>
+                                <p>Email ID: {company.email}</p>
                             </li>
                             <li>
                                 <div className="mini-icon"><img src={phone_icon} alt="" /></div>
-                                <p>Phone Number: 9999999999</p>
+                                <p>Phone Number: {company.phone}</p>
                             </li>
                         </ul>
                     </div>
@@ -45,7 +44,6 @@ class OtherDetails extends React.Component{
             </div>
             </div>
         )
-    }
 
 }
 

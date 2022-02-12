@@ -28,6 +28,7 @@ const StudentUserSchema = new mongoose.Schema(
       default:'',
       required: false,
     },
+    location:{type: String,default:'',required:false},
     branch:{type: String,default:'',required:false},
     graduation:{type: Number,default:'',required:false},
     resume:{type: String,default:'',required:false},

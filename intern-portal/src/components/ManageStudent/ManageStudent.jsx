@@ -38,7 +38,7 @@ export default function ManageJobs() {
                 <img src={statsimg} style={{width:'30%',height:'30%'}} alt="" />
             </div>
             <div className="jobsapplied">
-                <div style={{margin:'0 auto'}}><h2>Jobs Posted</h2></div>
+                <div style={{margin:'0 auto'}}><h2>Jobs Applied For</h2></div>
                 <div style={{dispay:'flex',flexDirection:'column'}}>
                 <div className="job-posted-list">
                     <StudentJobCard/>

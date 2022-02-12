@@ -13,6 +13,7 @@ export default function SearchBar() {
 
   return (
     <Autocomplete
+    multiple
     className='search-bar'
       id="grouped-demo"
       options={options.sort((a, b) => -b.stackType.localeCompare(a.stackType))}
