@@ -5,8 +5,7 @@ import email_icon from '../images/email_icon.png';
 import location_icon from '../images/location_icon.png';
 import year_of_graduation_icon from '../images/year_of_graduation_icon.png';
 
-class StotherDetails extends React.Component{
-    render(){
+const StotherDetails = ({ studentDetails }) => {
         return(
             <div className="st-other-details">
                 <div className="header">Other Details</div>
@@ -42,7 +41,7 @@ class StotherDetails extends React.Component{
                 </div>
             </div>
         )
-    }
+    
 
 }
 

@@ -1,8 +1,8 @@
 import React from "react";
 import "./St-about.css";
 
-class Stabout extends React.Component{
-    render(){
+const Stabout = ({ studentDetails }) => {
+
         return(
             <div className="st-about-section">
                 <div className="st-content" style={{margin: "5px"}}>
@@ -11,7 +11,6 @@ class Stabout extends React.Component{
                 </div>
             </div>
         )
-    }
 }
 
 export default Stabout;
