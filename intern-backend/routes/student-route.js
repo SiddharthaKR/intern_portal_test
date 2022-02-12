@@ -20,6 +20,28 @@ router.put("/:id", async (req, res) => {
     }
   });
 
+  //// application status
+  router.put("/:id/status",async(req,res)=>{
+      try{
+         StudentUser.findOne(applicants)
+      }catch(err){
+
+      }
+  })
+  // const itemId = 2;
+  // const query = {
+  //   item._id: itemId 
+  // };
+  // Person.findOne(query).then(doc => {
+  //   item = doc.items.id(itemId );
+  //   item["name"] = "new name";
+  //   item["value"] = "new value";
+  //   doc.save();
+  
+  //   //sent respnse to client
+  // }).catch(err => {
+  //   console.log('Oh! Dark')
+  // });
 
 
 

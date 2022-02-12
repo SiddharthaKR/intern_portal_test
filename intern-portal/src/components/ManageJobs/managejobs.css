@@ -1,6 +1,6 @@
 .company-statistics-container{
     display: flex;
-    padding: 20px;
+   
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -13,7 +13,9 @@
 .stats-icon{
     width: 3em !important;
 }
-
+.manage-comp-cont{
+    padding: 0% 8rem;
+}
 
 
 .company-statistics-tile-list{
@@ -56,3 +58,41 @@
 .mr-4{
     margin-right: 5px;
 }
+
+
+@media screen and (max-width: 542px){
+   .comp-card-logo{
+       display: none !important;
+   }
+   .btn{
+       padding: 0%;
+       width: 6rem;
+   }
+
+}
+@media screen and (max-width: 450px){
+.flex-col{
+    flex-direction: column !important;
+    padding-left: 0.5rem;
+    margin-top: 1rem;
+}
+    
+ }
+ @media screen and (max-width: 956px){
+    .manage-comp-cont{
+        padding: 0% ;
+    }
+        
+     }
+     @media screen and (max-width: 722px){
+        .company-statistics-container img{
+            display: none;
+        }
+            
+         }
+         @media screen and (max-width: 500px){
+            .company-statistics-tile-content{
+                width: auto;
+            }
+                
+             }       

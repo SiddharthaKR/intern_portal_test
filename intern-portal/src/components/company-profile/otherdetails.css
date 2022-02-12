@@ -1,5 +1,5 @@
 .other-details{
-    padding: 4px 40px;
+    padding: 4px 10rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
     border-radius: 10px;
     padding: 20px;
@@ -76,5 +76,14 @@
     .list{
         flex-direction: column;
     }
+   
+}
+@media screen and (max-width: 796px){
+   .profile-pad{
+       padding: 0%;
+   }
+   .custom-component{
+       padding: 0%;
+   }
    
 }

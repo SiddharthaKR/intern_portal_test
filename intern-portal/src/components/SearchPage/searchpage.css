@@ -37,3 +37,13 @@
 .border-none{
     border: none !important;
 }
+
+
+@media screen and (max-width: 1204px){
+    .searchpg-cont{
+       display: block !important;
+    }
+    .searchpg-imgCont{
+        display: none;
+    }
+}

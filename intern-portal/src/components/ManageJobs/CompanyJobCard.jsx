@@ -18,6 +18,7 @@ const CompanyJobCard = ({ alljob, job }) => {
   return (
     <Card
       sx={{
+        
         display: "flex",
         width: "100%",
         marginTop: "10px",
@@ -26,12 +27,13 @@ const CompanyJobCard = ({ alljob, job }) => {
       }}
     >
       <CardMedia
+      className="comp-card-logo"
         component="img"
         sx={{ width: 100, height: 100, margin: "20px" }}
         image={logo}
         alt="logo"
       />
-      <Box
+      <Box className="flex-col"
         sx={{
           display: "flex",
           flexDirection: "row",
@@ -94,7 +96,7 @@ const CompanyJobCard = ({ alljob, job }) => {
                   variant="contained"
                   sx={{ backgroundColor: "#3acbf7", marginRight: "10px" }}
                 >
-                  Company Details
+                  Company 
                 </Button>
               </Link>
             </>
@@ -108,7 +110,7 @@ const CompanyJobCard = ({ alljob, job }) => {
               }}
             >
               
-              View Responses
+              Responses
             </Button>
             </Link>
           )}

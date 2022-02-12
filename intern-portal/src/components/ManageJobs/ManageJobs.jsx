@@ -44,7 +44,7 @@ useEffect(()=>{
 
     return(
         <div style={{width:'100%'}}>
-            <div style={{width:'80%',display:'flex',flexDirection:'column',margin:'0 auto'}}>
+            <div className="manage-comp-cont" style={{display:'flex',flexDirection:'column',margin:'0'}}>
             <div className="company-statistics-container">
                 <div className="company-statistics-tile-list">
                     <h2>{company.name}</h2>

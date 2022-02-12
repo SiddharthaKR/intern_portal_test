@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Stcustomcomponent from "./StCustomComponent";
 import Stabout from "./St-About";
 import StotherDetails from "./St-OtherDetails";
 import Stskills from "./St-Skills";
+import { LoggedUserContext } from "../../context/LoggedUserContext";
 
 
 
 const StudentProfile = () => {
-    const [studentDetails,setStudentDetails]= useState({});
+    const [studentDetails,setStudentDetails]= useContext(LoggedUserContext);
 
     const getStudetails= async()=>{
         try{

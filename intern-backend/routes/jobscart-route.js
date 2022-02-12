@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Job=require('../models/Jobs');
 const StudentUser=require('../models/StudentUser')
+const Response=require('../models/Response');
 
 //CREATE JOBS
 router.post("/",async(req,res)=>{
@@ -99,6 +100,7 @@ router.get("/:id", async (req, res) => {
         if (!job.applicants.includes(req.body.userId)) {
           await job.updateOne({ $push: { applicants: req.body.userId } });
           await currentUser.updateOne({ $push: { jobsApplied: req.params.id } });
+         
           res.status(200).json("applid sucessfully");
         } else {
           res.status(403).json("you have already applied");
@@ -108,6 +110,8 @@ router.get("/:id", async (req, res) => {
       }
    
   });
+
+
 
 ////undo apply
   router.put("/:id/undo", async (req, res) => {
