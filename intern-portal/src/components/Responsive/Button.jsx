@@ -19,10 +19,11 @@ const Button = ({children,
 const checkButtonStyle= STYLES.includes(buttonStyle)? buttonStyle: STYLES[0] 
 const checkButtonSize = SIZE.includes(buttonSize)? buttonSize: SIZE[0]
     return (
-        <button className={`btn $(checkButtonSize)`} onClick={onClick} type={type}>
+        <button className={`btn $(checkButtonSize) $(checkButtonStyle)`} onClick={onClick} type={type}>
            {children}
         </button>
     )
 }
 
 export default Button;
+
