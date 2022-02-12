@@ -121,7 +121,7 @@ const handleCompSubmit=async(e)=>{
        <img className='temp-img' src={sideimg}></img>
       </Grid>
     
-  </Grid>;
+  </Grid>
       </>):( <Box
       component="form"
       sx={{ mt: 2, paddingX: 45 }}

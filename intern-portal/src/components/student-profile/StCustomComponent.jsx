@@ -10,8 +10,8 @@ import { useState,useEffect } from "react";
 
 
 const StCustomComponent = ({student}) => {
-// console.log(user )
-//////later we will use local storage
+
+////later we will use local storage
 // const [user,setUser]=useState({});
 // const getdetails= async()=>{
 //   try{
@@ -39,12 +39,12 @@ const StCustomComponent = ({student}) => {
 // getdetails();
 
 // },[]);
-/////
+// ///
 
 
 
 
-  console.log(student);
+
   return (<div>
      <div className="st-custom-component">
               <div className="st-container-1">
@@ -57,12 +57,14 @@ const StCustomComponent = ({student}) => {
                 <div className="st-tertiary-container-1" style={{color: "black"}}>
                   <div className="flex " style={{justifyContent:"space-between"}}>
                   <p>{student.username}</p>
-                  
-                   <Link to="/student/edit">
+                  {
+                   student.outlookId&&(<Link to="/student/edit">
                     <IconButton  aria-label="Edit Profile" className="edtbtn">
                     <EditIcon />              
                     </IconButton>
-                    </Link>
+                    </Link>)
+                  }
+                   
                   
                   
          </div>

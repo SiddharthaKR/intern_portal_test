@@ -23,13 +23,13 @@ useEffect(()=>{
 },[]);
 
 
-    return (<Grid container  sx={{height:"85vh",display:"flex", justifyContent:"flex-end"}} >
-<Grid item lg={8} sm={6}>
+    return (<Grid className="searchpg-cont" container  sx={{display:"flex", justifyContent:"flex-end"}} >
+<Grid item lg={8} sm={12} spacing={3}>
     {/* <div style={{alignItems:"center"}}>
 <h1 style={{marginRight:"auto"}}>Find Job That Suits You</h1>
 </div> */}
 <SearchBar />
-<Grid item>
+<Grid item sm={12}>
     {
         
             jobs.map((job)=>
@@ -51,7 +51,7 @@ useEffect(()=>{
     
 </Grid>
 </Grid>
-<Grid className="flex" sx={{justifyContent:'flex-end',justifySelf:"flex-end",alignItems:"baseline"}} item lg={2} sm={1}>
+<Grid className="flex searchpg-imgCont" sx={{justifyContent:'flex-end',justifySelf:"flex-end",alignItems:"baseline"}} item lg={2} sm={1}>
 <img className="searchimg" src={searchimg} alt="" />
 </Grid>
 

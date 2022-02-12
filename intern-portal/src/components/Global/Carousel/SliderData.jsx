@@ -1,13 +1,14 @@
 export const SliderData = [
-    {
-      image:
-        'https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
-        profile: "App Development"
-    },
+   
     {
       image:
         'https://media.istockphoto.com/photos/adaptive-and-responsive-web-design-concept-showing-sample-website-on-picture-id1301151581?b=1&k=20&m=1301151581&s=170667a&w=0&h=zYikz0ajSyA3ZR7h5vbjuLkVwe_efU50t7qCwnEObjE=',
         profile: "Web Development"
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
+        profile: "App Development"
     },
     {
       image:
