@@ -195,10 +195,13 @@ const handleCompSubmit=async(e)=>{
       <Grid item>
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
           <Typography sx={{marginRight:'20px',width:'100px'}}>About</Typography>
-          <TextField name="about" variant="outlined" value={text.about} onChange={handleInput} multiline Rows={8} sx={{width:'80%'}} />
+          <TextField name="about" variant="outlined" value={text.about} onChange={handleInput} multiline rows={8} sx={{width:'80%'}} />
         </div>
       </Grid>
+      <div style={{display:'flex',justifyContent:"center",width:'80%',marginBottom:'20px'}}>
       <Button type="submit" variant="outlined">Register</Button>
+        </div>
+     
       </Grid>
       </Box>)
 }

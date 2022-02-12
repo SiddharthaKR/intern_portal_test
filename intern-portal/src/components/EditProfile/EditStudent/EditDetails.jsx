@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import logo from '../../images/iitglogo.png'
 import { useNavigate } from 'react-router-dom';
-
+import Autocomplete from '@mui/material/Autocomplete';
 const EditDetails = () => {
 
 //////////////later we will use local storage
@@ -64,6 +64,7 @@ const updateDetails= async(e)=>{
  const email=studentDetails.email;
  const location=studentDetails.location;
   const bio=studentDetails.bio;
+  const resume=studentDetails.resume;
 //  const newDetail={
 //   userId:companyUser._id,
 //   name:text.name,
@@ -83,7 +84,7 @@ const updateDetails= async(e)=>{
 // console.log(err);
 // }
 
-
+  
 
  const res=await fetch(`/student/${studentDetails._id}`,{
    method: "PUT",
@@ -100,7 +101,8 @@ const updateDetails= async(e)=>{
      location:location,
      graduation:yearofgraduation,
      linkedin:linkedin,
-     bio: bio
+     bio: bio,
+     resume:resume
      
    })
  });
@@ -114,9 +116,13 @@ const updateDetails= async(e)=>{
  }
  
 }
-
-
-
+const options = jobFields.map((option) => {
+  const stackType = option.type;
+  return {
+      stackType: stackType,
+    ...option,
+  };
+});
   return (
   <form onSubmit={updateDetails}>
  <Grid container
@@ -142,9 +148,31 @@ const updateDetails= async(e)=>{
 </Grid>
 <Grid item>
   <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
-    <Typography sx={{marginRight:'20px',width:'100px'}}>Degree</Typography>
-    <TextField name="degree" variant="standard" value={studentDetails.degree} onChange={handleInput} sx={{width:'80%'}} />
+    <Typography sx={{marginRight:'20px',width:'100px'}}>Location</Typography>
+    <TextField name="location" variant="standard" value={studentDetails.location} onChange={handleInput} sx={{width:'80%'}}  />
   </div> 
+</Grid>
+<Grid item>
+  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+    <Typography sx={{marginRight:'20px',width:'100px'}}>Degree</Typography>
+    <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={studentDetails.degree}
+          label="Degree"
+          onChange={handleInput}
+          sx={{width:'80%'}}
+        >
+          <MenuItem value={'B.Tech'}>B.Tech</MenuItem>
+          <MenuItem value={'B.Des'}>B.Des</MenuItem>
+          <MenuItem value={'M.A'}>M.A</MenuItem>
+          <MenuItem value={'MBA'}>MBA</MenuItem>
+          <MenuItem value={'M.Des'}>M.Des</MenuItem>
+          <MenuItem value={'M.Sc'}>M.sc</MenuItem>
+          <MenuItem value={'M.Tech'}>M.Tech</MenuItem>
+          <MenuItem value={'PhD'}>PhD</MenuItem>
+        </Select>
+  </div>
 </Grid>
 <Grid item>
   <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
@@ -191,14 +219,33 @@ const updateDetails= async(e)=>{
 <Grid item>
   <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
     <Typography sx={{marginRight:'20px',width:'100px'}}>About</Typography>
-    <TextField name="about" variant="outlined" onChange={handleInput} multiline rows={4} sx={{width:'80%'}} />
+    <TextField name="bio" variant="outlined" onChange={handleInput} multiline rows={4} sx={{width:'80%'}} />
   </div>
+</Grid>
+<Grid item>
+  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+    <Typography sx={{marginRight:'20px',width:'100px'}}>Link to Resume</Typography>
+    <TextField name="resume" variant="outlined" onChange={handleInput} sx={{width:'80%'}} />
+  </div>
+</Grid>
+<Grid item>
+<div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+<Typography sx={{marginRight:'20px',width:'100px'}}>Add Skills</Typography>
+< Autocomplete
+        multiple
+          id="grouped-demo"
+          options={options.sort((a, b) => -b.stackType.localeCompare(a.stackType))}
+          groupBy={(option) => option.stackType}
+          getOptionLabel={(option) => option.title}
+          sx={{ width: 'flex' }}
+          renderInput={(params) => <TextField  className='border-none shadow-none' {...params} label="Add Tech Stacks"/>}
+        fullWidth/>
+</div>
 </Grid>
 <Grid item sx={{margin:'0 auto'}}>
 <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
     <Button type="submit" sx={{backgroundColor:'#3acbf7', marginTop:'20px'}}>Update</Button>
-    
-  
+
   </div>
 
 </Grid>
@@ -209,3 +256,48 @@ const updateDetails= async(e)=>{
 };
 
 export default EditDetails;
+const jobFields = [
+  {title: 'Angular',type: 'Frontend Frameworks' },
+  {title: 'Vue.js',type: 'Frontend Frameworks' },
+  {title: 'React',type: 'Frontend Frameworks' },
+  {title: 'React Native',type: 'Frontend Frameworks' },
+  {title: 'Next.js',type: 'Frontend-Frameworks'},
+  {title: 'HTML-CSS',type: 'Frontend Frameworks' },
+  {title: 'Express',type: 'Backend Frameworks'},
+  {title: 'Django',type: 'Backend Frameworks'},
+  {title: 'Laravel',type: 'Backend Frameworks'},
+  {title: 'Flask',type: 'Backend Frameworks'},
+  {title: 'Spring',type: 'Backend Frameworks'},
+  {title: 'Ruby on Rails',type: 'Backend Frameworks'},
+  {title: 'Node.js',type: 'Backend Frameworks'},
+  {title: 'MongoDB',type: 'Database'},
+  {title: 'MySQL',type: 'Database'},
+  {title: 'PostgreSQL',type: 'Database'},
+  {title: 'SQLite',type: 'Database'},
+  {title: 'Firebase',type: 'Database'},
+  {title: 'AWS',type: 'Cloud Platform'},
+  {title: 'Google Cloud',type: 'Cloud Platform'},
+  {title: 'Heroku',type: 'Cloud Platform'},
+  {title: 'Digital Ocean',type: 'Cloud Platform'},
+  {title: 'Netlify',type: 'Cloud Platform'},
+  {title: 'Flutter',type: 'App Development'},
+  {title: 'Java',type: 'App Development'},
+  {title: 'Kotlin',type: 'App Development'},
+  {title: 'Swift',type: 'App Development'},
+  {title: 'Data Science',type: 'Machine Learning'},
+  {title: 'Machine Learning',type: 'Machine Learning'},
+  {title: 'Deep Learning',type: 'Machine Learning'},
+  {title: 'Natural Language Processing',type: 'Machine Learning' },
+  {title: 'Artificial Intelligence',type: 'Machine Learning'},
+  {title: 'Computer Vision',type: 'Machine Learning'},
+  {title: 'R',type: 'Machine Learning'},
+  {title: 'Python',type:'Programming Language'},
+  {title: 'C++',type:'Programming Language'},
+  {title: 'C#',type:'Programming Language'},
+  {title: 'JavaScript',type:'Programming Language'},
+  {title: 'TypeScript',type:'Programming Language'},
+  {title: 'PHP',type:'Programming Language'},
+  {title: 'Go',type:'Programming Language'},
+  {title: 'Rust',type:'Programming Language'},
+  {title: 'UI/UX',type:'Design'},  
+];

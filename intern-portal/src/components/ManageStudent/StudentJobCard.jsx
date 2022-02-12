@@ -71,7 +71,7 @@ const CompanyJobCard = ({ alljob, job }) => {
               color="text.secondary"
               component="div"
             >
-              Full Time
+              Status: 
             </Typography>
             <Typography
               variant="subtitle1"

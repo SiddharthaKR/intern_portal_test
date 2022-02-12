@@ -5,7 +5,7 @@ import email_icon from '../images/email_icon.png';
 import location_icon from '../images/location_icon.png';
 import year_of_graduation_icon from '../images/year_of_graduation_icon.png';
 
-const StotherDetails = ({ studentDetails }) => {
+const StotherDetails = ({ student}) => {
         return(
             <div className="st-other-details">
                 <div className="header">Other Details</div>
@@ -14,15 +14,15 @@ const StotherDetails = ({ studentDetails }) => {
                         <ul>
                             <li>
                                 <div className="mini-icon"><img src={location_icon} alt="" /></div>
-                                <p>Location: Lucknow</p>
+                                <p>Location: {student.location}</p>
                             </li>
                             <li>
                                 <div className="mini-icon"><img src={branch_icon} alt="" /></div>
-                                <p>Branch: Mechnaical Engineering</p>
+                                <p>Branch: {student.branch}</p>
                             </li>
                             <li>
                                 <div className="mini-icon"><img src={year_of_graduation_icon} alt="" /></div>
-                                <p>Year of Graduation: 2024 (Online)</p>
+                                <p>Year of Graduation: {student.graduation}</p>
                             </li>
                         </ul>
                     </div>
@@ -30,7 +30,7 @@ const StotherDetails = ({ studentDetails }) => {
                         <ul>
                             <li>
                                 <div className="mini-icon"><img src={email_icon} alt="" /></div>
-                                <p>Email ID: hellonaman@iitg.ac.in</p>
+                                <p>Email ID: {student.email}</p>
                             </li>
                             <li>
                                 <div className="mini-icon"><img src={year_of_graduation_icon} alt="" /></div>
