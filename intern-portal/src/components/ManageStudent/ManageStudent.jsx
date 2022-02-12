@@ -40,7 +40,6 @@ export default function ManageJobs() {
             <div className="jobsapplied">
                 <div style={{margin:'0 auto'}}><h2>Jobs Posted</h2></div>
                 <div style={{dispay:'flex',flexDirection:'column'}}>
-                <h3>Opportunities where you have been shortlisted for further Rounds</h3>
                 <div className="job-posted-list">
                     <StudentJobCard/>
                     <StudentJobCard/>
@@ -49,7 +48,6 @@ export default function ManageJobs() {
                     <CompanyJobCard/> */}
                 </div>
                 <div style={{dispay:'flex',flexDirection:'column'}}>
-                <h3>Opportunities where the results are awaited</h3>
                 <div className="job-posted-list">
                     <StudentJobCard/>
                     <StudentJobCard/>
@@ -58,7 +56,6 @@ export default function ManageJobs() {
                     <CompanyJobCard/> */}
                 </div>
                 <div style={{dispay:'flex',flexDirection:'column'}}>
-                <h3>Opportunities where you have been rejected</h3>
                 <div className="job-posted-list">
                     <StudentJobCard/>
                     <StudentJobCard/>

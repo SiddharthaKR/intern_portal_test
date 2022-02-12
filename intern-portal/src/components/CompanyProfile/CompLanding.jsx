@@ -1,7 +1,8 @@
 import React,{useState,useEffect,useContext} from 'react';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import { Avatar, Button, Paper, TextField, Typography } from '@mui/material';
+import { Avatar, Paper, TextField, Typography } from '@mui/material';
+import Button from '../Responsive/Button';
 import axios from 'axios';
 import { FaWindows } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -112,7 +113,7 @@ const handleCompSubmit=async(e)=>{
          Find your candidates
      </Typography>
      <Link className='my-3' to={`/company/${companyUser._id}`}>
-      <Button variant='outlined'>View Profile
+      <Button >View Profile
       </Button>
       </Link> 
       </Grid>
