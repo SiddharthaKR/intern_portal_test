@@ -87,7 +87,7 @@ const handleCompSubmit=async(e)=>{
         about:text.about,
         location:text.location,
         domain:text.domain,
-        yearOfFoundation:text.yearofFoundation,
+        yearOfFoundation:text.yearOfFoundation,
         phone:text.phone,
        email:text.email,
        website:text.website,
@@ -164,13 +164,13 @@ const handleCompSubmit=async(e)=>{
       <Grid item>
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
           <Typography sx={{marginRight:'20px',width:'100px'}}>Domain</Typography>
-          <TextField name="location" variant="standard" value={text.domain} onChange={handleInput} sx={{width:'80%'}} />
+          <TextField name="domain" variant="standard" value={text.domain} onChange={handleInput} sx={{width:'80%'}} />
         </div> 
       </Grid>
       <Grid item>
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
           <Typography sx={{marginRight:'20px',width:'100px'}}>Year of Foundation</Typography>
-          <TextField name="location" variant="standard" value={text.yearOfFoundation} onChange={handleInput} sx={{width:'80%'}} />
+          <TextField name="yearOfFoundation" variant="standard" value={text.yearOfFoundation} onChange={handleInput} sx={{width:'80%'}} />
         </div> 
       </Grid>
       <Grid item>
