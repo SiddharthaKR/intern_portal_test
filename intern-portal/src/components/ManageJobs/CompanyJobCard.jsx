@@ -54,20 +54,42 @@ const CompanyJobCard = ({ alljob, job }) => {
               </Typography>
             )}
 
+            {alljob && (
             <Typography
               variant="subtitle1"
               color="text.secondary"
               component="div"
             >
-              Full Time
+              Type: {alljob.type},{alljob.mode}
             </Typography>
+            )}
+            {job && (
             <Typography
               variant="subtitle1"
               color="text.secondary"
               component="div"
             >
-              Company: Stonks Fintech
+              Type: {job.type},{job.mode}
             </Typography>
+            )}
+            {alljob && (
+            <Typography
+              variant="subtitle1"
+              color="text.secondary"
+              component="div"
+            >
+              Company: {alljob.company}
+            </Typography>
+            )}
+            {job && (
+            <Typography
+              variant="subtitle1"
+              color="text.secondary"
+              component="div"
+            >
+              Company: {job.company}
+            </Typography>
+            )}
           </CardContent>
         </Box>
         <CardActions>

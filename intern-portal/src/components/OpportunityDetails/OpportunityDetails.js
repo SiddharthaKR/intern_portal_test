@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./OpportunityDetails.css";
-import { GrLocation } from "react-icons/gr";
+import { GrLocation, GrPersonalComputer } from "react-icons/gr";
 import { BsCalendar2Check } from "react-icons/bs";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { MdAttachMoney } from "react-icons/md";
@@ -69,6 +69,7 @@ const OpportunityDetails = () => {
    }
  }
 console.log(user)
+console.log(job)
 const[applied,setApplied]=useState(false);
 useEffect(()=>{
   setApplied(user.jobsApplied?.includes(job?._id))
@@ -123,7 +124,7 @@ const applyHandler=()=>{
                                 </div>
                                 <div className="info-heading">
                                     <h4>Location:</h4>
-                                    <p style={{fontSize:'18px'}}>Mumbai</p>
+                                    <p style={{fontSize:'18px'}}>{job.location}</p>
                                   </div>
                               </div>
                             </li>
@@ -136,7 +137,7 @@ const applyHandler=()=>{
                                 </div>
                                 <div className="info-heading">
                                   <h4>Duration:</h4>
-                                  <p style={{fontSize:'18px'}}>6 Weeks</p>
+                                  <p style={{fontSize:'18px'}}>{job.duration}</p>
                                 </div>
                               </div>
                             </li>
@@ -154,7 +155,7 @@ const applyHandler=()=>{
                               </div>
                               <div className="info-heading">
                                 <h4>Apply By:</h4>
-                                <p style={{fontSize:'18px'}}>17th Oct 2021</p>
+                                <p style={{fontSize:'18px'}}>{job.applyBy}</p>
                               </div>
                             </div>
                             </li>
@@ -167,7 +168,7 @@ const applyHandler=()=>{
                                 </div>
                                 <div className="info-heading">
                                   <h4>Stipend:</h4>
-                                  <p style={{fontSize:'18px'}}>10 Kalol/per Month</p>
+                                  <p style={{fontSize:'18px'}}>{job.stipend}</p>
                                 </div>
                               </div>
                             </li>
@@ -183,8 +184,21 @@ const applyHandler=()=>{
                                   </IconContext.Provider>
                                 </div>
                                 <div className="info-heading">
-                                  <h4>Start:</h4>
-                                  <p style={{fontSize:'18px'}}>Immediately</p>
+                                  <h4>Type</h4>
+                                  <p style={{fontSize:'18px'}}>{job.type}</p>
+                                </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div className="info">
+                                <div className="info-icon">
+                                  <IconContext.Provider value={{ className: "react-icon" }}>
+                                    <GrPersonalComputer />
+                                  </IconContext.Provider>
+                                </div>
+                                <div className="info-heading">
+                                  <h4>Mode</h4>
+                                  <p style={{fontSize:'18px'}}>{job.mode}</p>
                                 </div>
                               </div>
                             </li>
@@ -197,15 +211,13 @@ const applyHandler=()=>{
         <div className="aboutrole border-bottom">
           <h4>About Role</h4>
           <p style={{fontSize:'18px',marginLeft:'1vmax'}}>
-            Selected intern's day-to-day responsibilities include working as a
-            part of a progressive web app (PWA) development project which will
-            be based on our web app REST API text app.
+            {job.aboutjob}
           </p>
         </div>
         </div>
         <div className="border-bottom">
          <div className="requirements">
-          <h4>Requiremets</h4>
+          <h4>Requirements</h4>
           <div>
             <p style={{fontSize:'18px',marginLeft:'1vmax'}}>Only those candidates can apply who:</p>
             <ol style={{marginLeft:'1vmax'}} className="requirementspoints">
@@ -227,7 +239,7 @@ const applyHandler=()=>{
               </ol>
         </div>
         <div style={{marginTop:'20px'}}>
-            <h3>No. of Openings: 4</h3>
+            <h3>No. of Openings: {job.noofopening}</h3>
         </div>
         </div>
         <div className="tags">

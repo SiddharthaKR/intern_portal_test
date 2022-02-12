@@ -28,7 +28,12 @@ export default function ManageJobs() {
       getCompany()
       },[])
 
+var numJobs=userjobs.length;
+var numApplicants=0;
+var FindnumApplicants=userjobs.map((job)=>(numApplicants+=job.applicants.length));
 
+var noofopening=0;
+var Findnoofopening=userjobs.map((job)=>(noofopening+=job.noofopening));
       
 useEffect(()=>{
     const getCompJobs=async()=>{
@@ -52,21 +57,21 @@ useEffect(()=>{
                     <Icon baseClassName="fas"className="fa-business-time stats-icon"sx={{ color: '#66DFD8',fontSize: 30 }}/>
                         <div className="company-statistics-tile-content-text">
                             <div style={{fontSize:'20px', marginLeft:'20px'}}>No. of jobs posted</div>
-                            <div style={{fontSize:'20px', marginLeft:'20px'}}>5</div>
+                            <div style={{fontSize:'20px', marginLeft:'20px'}}>{numJobs}</div>
                         </div>
                     </div>
                     <div className="company-statistics-tile-content">
                     <Icon baseClassName="fas"className="fa-users stats-icon"sx={{ color: '#66DFD8',fontSize: 30 }}/>
                         <div className="company-statistics-tile-content-text">
                             <div style={{fontSize:'20px', marginLeft:'20px'}}>Total No. of Applicants</div>
-                            <div style={{fontSize:'20px', marginLeft:'20px'}}>5</div>
+                            <div style={{fontSize:'20px', marginLeft:'20px'}}>{numApplicants}</div>
                         </div>
                     </div>
                     <div className="company-statistics-tile-content">
                     <Icon baseClassName="fas"className="fa-chart-pie stats-icon"sx={{ color: '#66DFD8',fontSize: 30 }}/>
                         <div className="company-statistics-tile-content-text">
                             <div style={{fontSize:'20px', marginLeft:'20px'}}>No. of Openings</div>
-                            <div style={{fontSize:'20px', marginLeft:'20px'}}>5</div>
+                            <div style={{fontSize:'20px', marginLeft:'20px'}}>{noofopening}</div>
                         </div>
                     </div>
                 </div>

@@ -58,9 +58,12 @@ const updateDetails= async(e)=>{
  const username= studentDetails.username;
  const rollno=studentDetails.rollno;
  const branch=studentDetails.branch;
+ const degree=studentDetails.degree;
  const yearofgraduation=studentDetails.yearofgraduation;
  const linkedin=studentDetails.linkedin;
  const email=studentDetails.email;
+ const location=studentDetails.location;
+  const bio=studentDetails.bio;
 //  const newDetail={
 //   userId:companyUser._id,
 //   name:text.name,
@@ -93,8 +96,11 @@ const updateDetails= async(e)=>{
      email:email,
      rollno:rollno,
      branch:branch,
+     degree:degree,
+     location:location,
      graduation:yearofgraduation,
      linkedin:linkedin,
+     bio: bio
      
    })
  });
@@ -132,6 +138,12 @@ const updateDetails= async(e)=>{
   <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
     <Typography sx={{marginRight:'20px',width:'100px'}}>Roll no</Typography>
     <TextField name="rollno" variant="standard" value={studentDetails.rollno} onChange={handleInput} sx={{width:'80%'}}  />
+  </div> 
+</Grid>
+<Grid item>
+  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+    <Typography sx={{marginRight:'20px',width:'100px'}}>Degree</Typography>
+    <TextField name="degree" variant="standard" value={studentDetails.degree} onChange={handleInput} sx={{width:'80%'}} />
   </div> 
 </Grid>
 <Grid item>

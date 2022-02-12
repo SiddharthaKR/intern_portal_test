@@ -1,4 +1,7 @@
-import {Box,Button,Grid,Avatar,TextField,Typography} from "@material-ui/core";
+import Grid from '@mui/material/Grid';
+import Button from '../../Responsive/Button';
+import TextField from '@mui/material/TextField';
+import { Avatar, Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import React, { useContext, useEffect, useState } from "react";
@@ -90,98 +93,10 @@ const CompRegisterModal = ({ setState,changev }) => {
   };
 
   return (
-    <form>
-      {/* <Grid className="box-shadow form-pad" paddingX={6} container spacing={3}>
-        <Grid item lg={12} alignItems="center">
-        <Typography align="center" variant="h4" mt={2}>
-            Edit Your Details
-          </Typography>
-          
-          
-        </Grid>
 
-        <Grid item xs={12} className="flex form-inp">
-          <Avatar alt="Remy Sharp" src={logo} />
-          <Button variant="outlined">Upload your logo</Button>
-        </Grid>
-        <Grid item className="flex form-inp" xs={12}>
-          <label htmlFor="">Name</label>
-          <TextField
-          
-            value={company.name}
-            name="name"
-            autoFocus={true}
-            onChange={handleInput}
-           
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">Phone</label>
-          <TextField
-            value={company.phone}
-            name="phone"
-            onChange={handleInput}
-        
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">Location</label>
-          <TextField
-            value={company.location}
-            name="location"
-            onChange={handleInput}
-           
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">Email Id</label>
-          <TextField
-            value={company.email}
-            name="email"
-            onChange={handleInput}
-          
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">Linked In Id</label>
-          <TextField
-            value={company.linkedin}
-            name="linkedin"
-            onChange={handleInput}
-           
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">Website</label>
-          <TextField
-            value={company.website}
-            name="website"
-            onChange={handleInput}
-            
-          />
-        </Grid>
-        <Grid className="flex form-inp" item xs={12}>
-          <label htmlFor="">About</label>
-          <TextField
-            value={company.about}
-            name="about"
-            onChange={handleInput}
-            multiline
-          
-            maxRows={4}
-          />
-        </Grid>
-        <Grid item style={{width:"100%",display:"flex",justifyContent:"space-evenly"}} >
-            <Button onClick={handleUpdate} type="submit" variant="outlined">Update</Button>
-            <Button onClick={()=>{
-              changev(false)
-              setState(false)}} variant='outlined' color="danger">Close</Button>
-          </Grid>
-        
-      </Grid> */}
       <Grid container
         direction="column"
-        spacing={5}>
+        spacing={3}>
         <Grid item>
           <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around"}}>
             <Avatar src={logo}  sx={{ width: 56, height: 56 }}/>
@@ -191,7 +106,7 @@ const CompRegisterModal = ({ setState,changev }) => {
       <Grid item>
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',marginTop:'20px',justifyContent:"space-around",width:'80%'}} >
           <Typography sx={{marginRight:'20px',width:'100px'}}>Name</Typography>
-          <TextField name="name" variant="standard" value={company.name} autoFocus={true} onChange={handleInput} sx={{width:'80%'}} fullWidth/>
+          <TextField name="name" variant="standard" value={company.name} autoFocus={true} onChange={handleInput} sx={{width:'80%'}} />
         </div> 
       </Grid>
       <Grid item>
@@ -204,6 +119,18 @@ const CompRegisterModal = ({ setState,changev }) => {
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
           <Typography sx={{marginRight:'20px',width:'100px'}}>Location</Typography>
           <TextField name="location" variant="standard" value={company.location} onChange={handleInput} sx={{width:'80%'}} />
+        </div> 
+      </Grid>
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
+          <Typography sx={{marginRight:'20px',width:'100px'}}>Domain</Typography>
+          <TextField name="location" variant="standard" value={company.domain} onChange={handleInput} sx={{width:'80%'}} />
+        </div> 
+      </Grid>
+      <Grid item>
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
+          <Typography sx={{marginRight:'20px',width:'100px'}}>Year of Foundation</Typography>
+          <TextField name="location" variant="standard" value={company.yearOfFoundation} onChange={handleInput} sx={{width:'80%'}} />
         </div> 
       </Grid>
       <Grid item>
@@ -228,7 +155,7 @@ const CompRegisterModal = ({ setState,changev }) => {
       <Grid item>
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:"space-around",width:'80%'}}>
           <Typography sx={{marginRight:'20px',width:'100px'}}>About</Typography>
-          <TextField name="about" variant="outlined" onChange={handleInput} multiline Rows={8} sx={{width:'80%'}} />
+          <TextField name="about" variant="outlined" value={company.about} onChange={handleInput} multiline Rows={8} sx={{width:'80%'}} />
         </div>
       </Grid>
       <Grid item style={{width:"100%",display:"flex",justifyContent:"space-evenly"}} >
@@ -238,7 +165,6 @@ const CompRegisterModal = ({ setState,changev }) => {
               setState(false)}} variant='outlined' color="danger">Close</Button>
           </Grid>
       </Grid> 
-    </form>
   );
 };
 
