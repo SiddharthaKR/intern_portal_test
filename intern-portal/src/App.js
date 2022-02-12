@@ -45,6 +45,10 @@ useEffect(()=>{
   }
   getUser();
 },[]);
+function RequireAuth({ children, redirectTo }) {
+  
+  return user ? children : <Navigate to={redirectTo} />;
+}
 
 console.log("---",user);
 
@@ -61,7 +65,9 @@ console.log("---",user);
       <Route path='/student/landing' element={< StudentLanding />} />
       <Route path='/student/edit' element={< StudentEdit />} />
       <Route exact path='/manage/:userid' element={<ManageJobs/>} />
-      <Route exact path='/jobs' element={<SearchPage/>} />
+      <Route exact path='/jobs' element={ <RequireAuth redirectTo="/login">
+            <SearchPage />
+          </RequireAuth>} />
       <Route  path='/manage/:jobid/response' element={<ViewResponses/>}/>
       <Route exact path='/jobs/:jobid' element={<OpportunityDetails/>} />
       <Route exact path='/student/manage/:userid' element={<ManageStudent/>} />
@@ -71,5 +77,7 @@ console.log("---",user);
     </BrowserRouter>
   );
 }
+
+
 
 export default App;
