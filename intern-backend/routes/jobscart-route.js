@@ -137,7 +137,7 @@ router.get("/:id", async (req, res) => {
     try{
       const job= await Job.findById(req.params.jobid);
       const ids=job.applicants;
-      const records = await StudentUser.find({ '_id': { $in: ids } },{username:1,skills:1,profilePicture:1});
+      const records = await StudentUser.find({ '_id': { $in: ids } },{username:1,skills:1,profilePicture:1,email:1,degree:1,branch:1});
       res.status(200).json(records);
     }catch(err){
      res.status(500).json(err)

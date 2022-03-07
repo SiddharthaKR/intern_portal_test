@@ -34,7 +34,7 @@ const StotherDetails = ({ student}) => {
                             </li>
                             <li>
                                 <div className="mini-icon"><img src={year_of_graduation_icon} alt="" /></div>
-                                <p>Degree: B.Tech.</p>
+                                <p>Degree:{student.degree}</p>
                             </li>
                         </ul>
                     </div>

@@ -15,7 +15,7 @@ import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import CheckIcon from '@mui/icons-material/Check';
 const ResponseCard = ({ applicant}) => {
   const theme = useTheme();
-
+  console.log(applicant);
   return (
     <Card
       sx={{
@@ -49,14 +49,14 @@ const ResponseCard = ({ applicant}) => {
               color="text.secondary"
               component="div"
             >
-              3rd Year
+              {applicant.email}
             </Typography>
             <Typography
               variant="subtitle1"
               color="text.secondary"
               component="div"
             >
-              B.Tech, Computer Science
+              {applicant.degree} {applicant.branch}
             </Typography>
           </CardContent>
         </Box>
