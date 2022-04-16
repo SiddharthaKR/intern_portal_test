@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
 import { CompanyContext } from "../../context/CompanyContext";
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import DateAdapter from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import InputLabel from '@mui/material/InputLabel';
@@ -201,7 +201,7 @@ console.log(err);
           />
         </div>
         <div className={classes.item}>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <LocalizationProvider dateAdapter={DateAdapter}>
           <DatePicker
             name="applyby"
             label="Apply By"

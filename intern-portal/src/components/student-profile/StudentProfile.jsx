@@ -8,7 +8,7 @@ import { LoggedUserContext } from "../../context/LoggedUserContext";
 
 
 const StudentProfile = () => {
-    const [studentDetails,setStudentDetails]= useContext(LoggedUserContext);
+    const [studentDetails,setStudentDetails]= useState({});
 
     const getStudetails= async()=>{
         try{

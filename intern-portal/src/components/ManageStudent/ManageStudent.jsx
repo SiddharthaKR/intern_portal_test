@@ -19,7 +19,7 @@ export default function ManageJobs() {
             <div style={{width:'80%',display:'flex',flexDirection:'column',margin:'0 auto'}}>
             <div className="student-statistics-container">
                 <div className="student-statistics-tile-list">
-                    <h2>Comder Sharma</h2>
+                    <h2>Vighnesh Deshpande</h2>
                     <div className="student-statistics-tile-content">
                     <Icon baseClassName="fas"className="fa-business-time stats-icon"sx={{ color: '#66DFD8',fontSize: 30 }}/>
                         <div className="student-statistics-tile-content-text">

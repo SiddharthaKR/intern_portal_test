@@ -160,9 +160,9 @@ const CompRegisterModal = ({ setState,changev }) => {
       </Grid>
       <Grid item style={{width:"100%",display:"flex",justifyContent:"space-evenly"}} >
             <Button onClick={handleUpdate} type="submit" variant="outlined">Update</Button>
-            <Button onClick={()=>{
+            {/* <Button onClick={()=>{
               changev(false)
-              setState(false)}} variant='outlined' color="danger">Close</Button>
+              setState(false)}} variant='outlined' color="danger">Close</Button> */}
           </Grid>
       </Grid> 
   );

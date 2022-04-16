@@ -20,7 +20,7 @@ const ResNavbar = ({user}) => {
     return (
         <nav className='NavbarItems '>
             <Link to="/">
-            <img src={logo} alt="" srcset="" />
+            <img style={{height:"64px"}} src={logo} alt="" srcset="" />
             </Link>
             <div className='menu-icon'onClick={handleClick}>
   <i className={clicked?"fas fa-times": 'fas fa-bars'}></i>
