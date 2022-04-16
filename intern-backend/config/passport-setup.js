@@ -57,7 +57,7 @@ passport.use(
       callbackURL: "/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
-      
+      console.log(profile);
       CompUser.findOne({googleId:profile.id}).then(
         (currentUser)=>{
           if(currentUser){

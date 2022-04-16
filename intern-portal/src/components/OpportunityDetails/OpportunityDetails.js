@@ -222,10 +222,9 @@ const applyHandler=()=>{
             <p style={{fontSize:'18px',marginLeft:'1vmax'}}>Only those candidates can apply who:</p>
             <ol style={{marginLeft:'1vmax'}} className="requirementspoints">
               <li className="requirements-lst">Are Available to work from home</li>
-              <li className="requirements-lst">Are Available to work from home</li>
-              <li className="requirements-lst">Are Available to work from home</li>
-              <li className="requirements-lst">Are Available to work from home</li>
-              <li className="requirements-lst">Are Available to work from home</li>
+              <li className="requirements-lst">Should be proefficient in backend Development</li>
+              <li className="requirements-lst">Prior experience in software development is preferable</li>
+              <li className="requirements-lst">Student must be from computer science and related fields</li>
             </ol>
           </div>
         </div>
@@ -234,8 +233,9 @@ const applyHandler=()=>{
         <div style={{marginTop:'20px'}}>
             <h3>Perks</h3>
               <ol style={{marginLeft:'1vmax'}} className="requirementspoints">
+                <li style={{fontSize:'18px'}}>LOR will be available</li>
                 <li style={{fontSize:'18px'}}>Certificate</li>
-                <li style={{fontSize:'18px'}}>Certificate</li>
+                <li style={{fontSize:'18px'}}>Goodies</li>
               </ol>
         </div>
         <div style={{marginTop:'20px'}}>
